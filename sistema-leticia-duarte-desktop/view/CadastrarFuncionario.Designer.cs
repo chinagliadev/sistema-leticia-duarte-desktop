@@ -34,12 +34,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtTelefoneCadastro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCpfCadastro = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtConfirmarSenha = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtSenhaCadastro = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,7 +48,8 @@
             this.txtEmailCadastro = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtNomeCadastro = new System.Windows.Forms.TextBox();
-            this.txtSenhaCadastro = new System.Windows.Forms.TextBox();
+            this.txtCpfCadastro = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefoneCadastro = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,10 +90,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtTelefoneCadastro);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtCpfCadastro);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtConfirmarSenha);
             this.panel1.Controls.Add(this.label5);
@@ -124,15 +124,6 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Telefone";
             // 
-            // txtTelefoneCadastro
-            // 
-            this.txtTelefoneCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefoneCadastro.Location = new System.Drawing.Point(630, 531);
-            this.txtTelefoneCadastro.Name = "txtTelefoneCadastro";
-            this.txtTelefoneCadastro.Size = new System.Drawing.Size(507, 31);
-            this.txtTelefoneCadastro.TabIndex = 16;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -143,15 +134,6 @@
             this.label7.Size = new System.Drawing.Size(54, 25);
             this.label7.TabIndex = 15;
             this.label7.Text = "CPF";
-            // 
-            // txtCpfCadastro
-            // 
-            this.txtCpfCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpfCadastro.Location = new System.Drawing.Point(630, 458);
-            this.txtCpfCadastro.Name = "txtCpfCadastro";
-            this.txtCpfCadastro.Size = new System.Drawing.Size(507, 31);
-            this.txtCpfCadastro.TabIndex = 14;
             // 
             // label6
             // 
@@ -184,6 +166,16 @@
             this.label5.Size = new System.Drawing.Size(74, 25);
             this.label5.TabIndex = 11;
             this.label5.Text = "Senha";
+            // 
+            // txtSenhaCadastro
+            // 
+            this.txtSenhaCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSenhaCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaCadastro.Location = new System.Drawing.Point(630, 314);
+            this.txtSenhaCadastro.Name = "txtSenhaCadastro";
+            this.txtSenhaCadastro.PasswordChar = '*';
+            this.txtSenhaCadastro.Size = new System.Drawing.Size(507, 31);
+            this.txtSenhaCadastro.TabIndex = 10;
             // 
             // label4
             // 
@@ -282,15 +274,23 @@
             this.txtNomeCadastro.Size = new System.Drawing.Size(507, 31);
             this.txtNomeCadastro.TabIndex = 2;
             // 
-            // txtSenhaCadastro
+            // txtCpfCadastro
             // 
-            this.txtSenhaCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSenhaCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenhaCadastro.Location = new System.Drawing.Point(630, 314);
-            this.txtSenhaCadastro.Name = "txtSenhaCadastro";
-            this.txtSenhaCadastro.PasswordChar = '*';
-            this.txtSenhaCadastro.Size = new System.Drawing.Size(507, 31);
-            this.txtSenhaCadastro.TabIndex = 10;
+            this.txtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpfCadastro.Location = new System.Drawing.Point(630, 458);
+            this.txtCpfCadastro.Mask = "000.000.000-00";
+            this.txtCpfCadastro.Name = "txtCpfCadastro";
+            this.txtCpfCadastro.Size = new System.Drawing.Size(507, 31);
+            this.txtCpfCadastro.TabIndex = 8;
+            // 
+            // txtTelefoneCadastro
+            // 
+            this.txtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefoneCadastro.Location = new System.Drawing.Point(630, 542);
+            this.txtTelefoneCadastro.Mask = "(00) 000000-0000";
+            this.txtTelefoneCadastro.Name = "txtTelefoneCadastro";
+            this.txtTelefoneCadastro.Size = new System.Drawing.Size(507, 31);
+            this.txtTelefoneCadastro.TabIndex = 18;
             // 
             // CadastrarFuncionario
             // 
@@ -331,11 +331,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCpfCadastro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtConfirmarSenha;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTelefoneCadastro;
         private System.Windows.Forms.TextBox txtSenhaCadastro;
+        private System.Windows.Forms.MaskedTextBox txtCpfCadastro;
+        private System.Windows.Forms.MaskedTextBox txtTelefoneCadastro;
     }
 }

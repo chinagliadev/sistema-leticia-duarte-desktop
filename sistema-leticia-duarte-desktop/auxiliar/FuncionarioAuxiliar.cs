@@ -32,7 +32,6 @@ namespace sistema_leticia_duarte_desktop.auxiliar
 
                     cmd.ExecuteNonQuery();
                 }
-                MessageBox.Show("Funcionário cadastrado com sucesso!", "Cadastro Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {

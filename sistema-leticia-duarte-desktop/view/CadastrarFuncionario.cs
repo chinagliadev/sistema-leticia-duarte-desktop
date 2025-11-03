@@ -29,14 +29,16 @@ namespace sistema_leticia_duarte_desktop.view
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
             Funcionario funcionario = new Funcionario();
-            string nome = txtNomeCadastro.Text;
-            string email = txtEmailCadastro.Text;
-            string cpf = txtCpfCadastro.Text;
-            string celular = txtTelefoneCadastro.Text;
+
+            string nome = txtNomeCadastro.Text.Trim();
+            string email = txtEmailCadastro.Text.Trim();
+
+            string cpf = Regex.Replace(txtCpfCadastro.Text, @"\D", "");
+            string celular = Regex.Replace(txtTelefoneCadastro.Text, @"\D", "");
+
             string senha = txtSenhaCadastro.Text;
-            string Confirmarsenha = txtConfirmarSenha.Text;
+            string confirmarSenha = txtConfirmarSenha.Text;
 
             if (string.IsNullOrEmpty(nome) || nome.Split(' ').Length < 2)
             {
@@ -59,9 +61,9 @@ namespace sistema_leticia_duarte_desktop.view
                 return;
             }
 
-            if (string.IsNullOrEmpty(celular) || !Regex.IsMatch(celular, @"^\d{10,}$"))
+            if (string.IsNullOrEmpty(celular))
             {
-                MessageBox.Show("Por favor, informe um número de celular válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, informe um número de celular válido (10 ou 11 dígitos).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTelefoneCadastro.Focus();
                 return;
             }
@@ -108,8 +110,6 @@ namespace sistema_leticia_duarte_desktop.view
                 return;
             }
 
-            string confirmarSenha = txtConfirmarSenha.Text;
-
             if (string.IsNullOrEmpty(confirmarSenha))
             {
                 MessageBox.Show("Por favor, confirme sua senha.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,7 +124,6 @@ namespace sistema_leticia_duarte_desktop.view
                 return;
             }
 
-
             funcionario.nome = nome;
             funcionario.email = email;
             funcionario.cpf = cpf;
@@ -134,6 +133,9 @@ namespace sistema_leticia_duarte_desktop.view
             FuncionarioAuxiliar auxiliar = new FuncionarioAuxiliar();
             auxiliar.cadastrarFuncionario(funcionario);
 
+            MessageBox.Show("Funcionário cadastrado com sucesso!", "Cadastro Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
+
     }
 }
