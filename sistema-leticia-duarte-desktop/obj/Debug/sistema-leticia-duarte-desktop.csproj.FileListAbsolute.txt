@@ -84,3 +84,5 @@ C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duart
 C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema-leticia-duarte-desktop.exe
 C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema-leticia-duarte-desktop.pdb
 C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema_leticia_duarte_desktop.view.TelaCadastro.resources
+C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\bin\Debug\BCrypt.Net-Next.xml

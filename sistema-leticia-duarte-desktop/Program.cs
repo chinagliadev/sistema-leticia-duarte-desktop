@@ -17,7 +17,7 @@ namespace sistema_leticia_duarte_desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaCadastro());
+            Application.Run(new Login());
         }
     }
 }

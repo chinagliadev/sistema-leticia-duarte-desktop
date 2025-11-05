@@ -69,12 +69,15 @@ namespace sistema_leticia_duarte_desktop.view
 
             FuncionarioAuxiliar funcionarioAuxiliar = new FuncionarioAuxiliar();
 
-            bool loginValido = funcionarioAuxiliar.validarCadastroFuncionario(funcionario);
+            int idFuncionario = funcionarioAuxiliar.ObterIdFuncionario(funcionario);
 
-            if (loginValido)
+            if (idFuncionario > 0)
             {
                 MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                TelaCadastro telaCadastro = new TelaCadastro(idFuncionario);
+                telaCadastro.Show();
+                this.Hide();
             }
             else
             {

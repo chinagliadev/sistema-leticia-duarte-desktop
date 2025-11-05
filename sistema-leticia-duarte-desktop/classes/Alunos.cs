@@ -12,6 +12,7 @@ namespace sistema_leticia_duarte_desktop.classes
         public string nome { get; set; }
         public string ra_aluno { get; set; }
         public string cpf { get; set; }
+        public string rg { get; set; } 
         public string data_nascimento { get; set; }
         public string etnia { get; set; }
         public string turma { get; set; }
@@ -27,11 +28,12 @@ namespace sistema_leticia_duarte_desktop.classes
         {
         }
 
-        public Alunos(string nome, string ra_aluno, string cpf, string data_nascimento, string etnia, string turma, bool autorizacao_febre, string remedios, int qtdGotas, bool permissao_foto, string dataCadastro)
+        public Alunos(string nome, string ra_aluno, string cpf, string rg, string data_nascimento, string etnia, string turma, bool autorizacao_febre, string remedios, int qtdGotas, bool permissao_foto, string dataCadastro)
         {
             this.nome = nome;
             this.ra_aluno = ra_aluno;
             this.cpf = cpf;
+            this.rg = rg; 
             this.data_nascimento = data_nascimento;
             this.etnia = etnia;
             this.turma = turma;
