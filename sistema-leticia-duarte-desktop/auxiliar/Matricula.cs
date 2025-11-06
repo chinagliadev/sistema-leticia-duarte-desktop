@@ -15,7 +15,7 @@ namespace sistema_leticia_duarte_desktop.auxiliar
        int estrutura_familiar_id,
        int funcionario_id,
        int responsavel_1_id,
-       int responsavel_2_id,
+       int? responsavel_2_id = null,
        int? pessoa_autorizada_1_id = null,
        int? pessoa_autorizada_2_id = null,
        int? pessoa_autorizada_3_id = null,
@@ -65,7 +65,6 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                             : (object)DBNull.Value;
                         cmd.Parameters.Add("@pessoa_autorizada_4_id", MySqlDbType.Int32).Value = valorAutorizada4;
 
-                        // -----------------------------------------------------------------
 
                         int idInserido = Convert.ToInt32(cmd.ExecuteScalar());
                         return idInserido;

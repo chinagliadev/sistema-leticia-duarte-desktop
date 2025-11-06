@@ -39,6 +39,7 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                         cmd.Parameters.AddWithValue("@funcionario_id", aluno.funcionario_id);
 
                         int idInserido = Convert.ToInt32(cmd.ExecuteScalar());
+                        MessageBox.Show("data nascimento: " + aluno.dataCadastro);
                         return idInserido;
                     }
                 }

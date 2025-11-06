@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.btnVerificarData = new System.Windows.Forms.Button();
             this.comboBoxCorRacaAlunoCadastro = new System.Windows.Forms.ComboBox();
             this.txtDataNascimentoAlunoCadastro = new System.Windows.Forms.MaskedTextBox();
             this.labelRemedioAlunoCadastro = new System.Windows.Forms.Label();
@@ -55,7 +57,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNumeroAlunoCadastro = new System.Windows.Forms.TextBox();
             this.txtEnderecoAlunoCadastro = new System.Windows.Forms.TextBox();
-            this.txtCepAlunoCadastro = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtRgAlunoCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -78,7 +79,6 @@
             this.txtRendaExtraResponsavelCadastro = new System.Windows.Forms.TextBox();
             this.checkBoxRendaExtraResponsavelCadastro = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtSalarioResponsavelCadastro = new System.Windows.Forms.TextBox();
             this.comboBoxEstadoCivilResponsavelCadastro = new System.Windows.Forms.ComboBox();
             this.txtDataNascimentoResponsavelCadastro = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxTipoResponsavel = new System.Windows.Forms.ComboBox();
@@ -100,6 +100,8 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
@@ -218,8 +220,7 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.txtSalarioResponsavelCadastro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -298,6 +299,8 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.maskedTextBox1);
+            this.panel3.Controls.Add(this.btnVerificarData);
             this.panel3.Controls.Add(this.comboBoxCorRacaAlunoCadastro);
             this.panel3.Controls.Add(this.txtDataNascimentoAlunoCadastro);
             this.panel3.Controls.Add(this.labelRemedioAlunoCadastro);
@@ -317,7 +320,6 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtNumeroAlunoCadastro);
             this.panel3.Controls.Add(this.txtEnderecoAlunoCadastro);
-            this.panel3.Controls.Add(this.txtCepAlunoCadastro);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.txtRgAlunoCadastro);
@@ -335,6 +337,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1322, 388);
             this.panel3.TabIndex = 5;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(539, 138);
+            this.maskedTextBox1.Mask = "000000-000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(234, 26);
+            this.maskedTextBox1.TabIndex = 49;
+            // 
+            // btnVerificarData
+            // 
+            this.btnVerificarData.Location = new System.Drawing.Point(522, 278);
+            this.btnVerificarData.Name = "btnVerificarData";
+            this.btnVerificarData.Size = new System.Drawing.Size(125, 34);
+            this.btnVerificarData.TabIndex = 48;
+            this.btnVerificarData.Text = "das";
+            this.btnVerificarData.UseVisualStyleBackColor = true;
+            this.btnVerificarData.Click += new System.EventHandler(this.btnVerificarData_Click);
             // 
             // comboBoxCorRacaAlunoCadastro
             // 
@@ -528,14 +549,6 @@
             this.txtEnderecoAlunoCadastro.Name = "txtEnderecoAlunoCadastro";
             this.txtEnderecoAlunoCadastro.Size = new System.Drawing.Size(242, 26);
             this.txtEnderecoAlunoCadastro.TabIndex = 28;
-            // 
-            // txtCepAlunoCadastro
-            // 
-            this.txtCepAlunoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCepAlunoCadastro.Location = new System.Drawing.Point(537, 138);
-            this.txtCepAlunoCadastro.Name = "txtCepAlunoCadastro";
-            this.txtCepAlunoCadastro.Size = new System.Drawing.Size(240, 26);
-            this.txtCepAlunoCadastro.TabIndex = 27;
             // 
             // label8
             // 
@@ -793,14 +806,6 @@
             this.label21.TabIndex = 52;
             this.label21.Text = "Salario do Responsavel";
             // 
-            // txtSalarioResponsavelCadastro
-            // 
-            this.txtSalarioResponsavelCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalarioResponsavelCadastro.Location = new System.Drawing.Point(271, 338);
-            this.txtSalarioResponsavelCadastro.Name = "txtSalarioResponsavelCadastro";
-            this.txtSalarioResponsavelCadastro.Size = new System.Drawing.Size(251, 26);
-            this.txtSalarioResponsavelCadastro.TabIndex = 51;
-            // 
             // comboBoxEstadoCivilResponsavelCadastro
             // 
             this.comboBoxEstadoCivilResponsavelCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1032,6 +1037,22 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1569, 682);
             this.panelPrincipal.TabIndex = 49;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Gold;
+            this.panel14.Location = new System.Drawing.Point(107, 2470);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1322, 10);
+            this.panel14.TabIndex = 104;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Location = new System.Drawing.Point(107, 1420);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1322, 10);
+            this.panel1.TabIndex = 103;
             // 
             // panel11
             // 
@@ -2391,21 +2412,14 @@
             this.panel6.Size = new System.Drawing.Size(1322, 10);
             this.panel6.TabIndex = 49;
             // 
-            // panel1
+            // txtSalarioResponsavelCadastro
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel1.Location = new System.Drawing.Point(107, 1420);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1322, 10);
-            this.panel1.TabIndex = 103;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.Gold;
-            this.panel14.Location = new System.Drawing.Point(107, 2470);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1322, 10);
-            this.panel14.TabIndex = 104;
+            this.txtSalarioResponsavelCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalarioResponsavelCadastro.Location = new System.Drawing.Point(271, 338);
+            this.txtSalarioResponsavelCadastro.Name = "txtSalarioResponsavelCadastro";
+            this.txtSalarioResponsavelCadastro.Size = new System.Drawing.Size(251, 26);
+            this.txtSalarioResponsavelCadastro.TabIndex = 51;
+            this.txtSalarioResponsavelCadastro.TextChanged += new System.EventHandler(this.txtSalarioResponsavelCadastro_TextChanged);
             // 
             // TelaCadastro
             // 
@@ -2459,6 +2473,7 @@
         private System.Windows.Forms.ComboBox comboboxTurmaAlunoCadastro;
         private System.Windows.Forms.MaskedTextBox txtRgAlunoCadastro;
         private System.Windows.Forms.MaskedTextBox txtCpfAlunoCadastro;
+        private System.Windows.Forms.TextBox txtCepAlunoCadastro;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -2466,7 +2481,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNumeroAlunoCadastro;
         private System.Windows.Forms.TextBox txtEnderecoAlunoCadastro;
-        private System.Windows.Forms.TextBox txtCepAlunoCadastro;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -2508,7 +2522,6 @@
         private System.Windows.Forms.TextBox txtRendaExtraResponsavelCadastro;
         private System.Windows.Forms.CheckBox checkBoxRendaExtraResponsavelCadastro;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtSalarioResponsavelCadastro;
         private System.Windows.Forms.MaskedTextBox txtTelefoneResponsavelCadastro;
         private System.Windows.Forms.MaskedTextBox txtTelefoneTrabalhoResponsavelCadastro;
         private System.Windows.Forms.Button btnAdicionarResponsavel1Cadastro;
@@ -2633,5 +2646,8 @@
         private System.Windows.Forms.CheckBox checkBoxVisao;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnVerificarData;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox txtSalarioResponsavelCadastro;
     }
 }
