@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\funcionarioauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\funcionarioauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\cadastrarfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\cadastrarfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\telacadastro.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\alunoauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\alunoauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,95 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FuncionarioAuxiliar.cs",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs*",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs*",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAYwGsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T20:08:06.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TelaCadastro.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.Designer.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.Designer.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.Designer.cs",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.Designer.cs",
-              "ViewState": "AgIAAH8JAAAAAAAAAAAewJMJAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:25:53.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AlunoAuxiliar.cs",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:20:27.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TelaCadastro.cs",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "ViewState": "AgIAAIwBAAAAAAAAAAAwwJ0BAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:13:55.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "TelaCadastro.cs [Design]",
               "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
               "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]",
+              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]*",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:13:51.478Z",
+              "WhenOpened": "2025-11-06T03:25:30.496Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CadastrarFuncionario.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\CadastrarFuncionario.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\CadastrarFuncionario.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\CadastrarFuncionario.cs [Design]",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\CadastrarFuncionario.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:13:49.809Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Matricula.cs",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
-              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
-              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwB4AAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T19:06:24.728Z",
-              "EditorCaption": ""
             }
           ]
         }

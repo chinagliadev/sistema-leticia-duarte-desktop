@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastro));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -219,6 +218,8 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -231,20 +232,12 @@
             this.panelResponsavel2Cadastro.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 882);
-            this.panel1.TabIndex = 0;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(71, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(-36, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1032, 882);
+            this.pictureBox2.Size = new System.Drawing.Size(1139, 882);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -266,37 +259,37 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(226, 43);
+            this.panel2.Location = new System.Drawing.Point(23, 84);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1344, 119);
+            this.panel2.Size = new System.Drawing.Size(1569, 99);
             this.panel2.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 58);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(31, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 42);
+            this.label2.Size = new System.Drawing.Size(171, 33);
             this.label2.TabIndex = 4;
             this.label2.Text = "DE ALUNO";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 16);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 42);
+            this.label1.Size = new System.Drawing.Size(184, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "CADASTRO";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1108, 16);
+            this.pictureBox3.Location = new System.Drawing.Point(1403, 16);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(197, 90);
+            this.pictureBox3.Size = new System.Drawing.Size(157, 67);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -338,7 +331,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(12, 14);
+            this.panel3.Location = new System.Drawing.Point(107, 34);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1322, 388);
             this.panel3.TabIndex = 5;
@@ -704,7 +697,7 @@
             this.panel4.Controls.Add(this.label29);
             this.panel4.Controls.Add(this.label30);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(12, 428);
+            this.panel4.Location = new System.Drawing.Point(107, 448);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1322, 466);
             this.panel4.TabIndex = 48;
@@ -1026,6 +1019,8 @@
             // 
             this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panelPrincipal.Controls.Add(this.panel14);
+            this.panelPrincipal.Controls.Add(this.panel1);
             this.panelPrincipal.Controls.Add(this.panel11);
             this.panelPrincipal.Controls.Add(this.panel7);
             this.panelPrincipal.Controls.Add(this.panel5);
@@ -1033,9 +1028,9 @@
             this.panelPrincipal.Controls.Add(this.panel6);
             this.panelPrincipal.Controls.Add(this.panel3);
             this.panelPrincipal.Controls.Add(this.panel4);
-            this.panelPrincipal.Location = new System.Drawing.Point(227, 187);
+            this.panelPrincipal.Location = new System.Drawing.Point(23, 200);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1366, 682);
+            this.panelPrincipal.Size = new System.Drawing.Size(1569, 682);
             this.panelPrincipal.TabIndex = 49;
             // 
             // panel11
@@ -1078,7 +1073,7 @@
             this.panel11.Controls.Add(this.label58);
             this.panel11.Controls.Add(this.label59);
             this.panel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(12, 2450);
+            this.panel11.Location = new System.Drawing.Point(107, 2470);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1322, 466);
             this.panel11.TabIndex = 99;
@@ -1511,7 +1506,7 @@
             this.panel7.Controls.Add(this.txtNumeroFilhosCadastro);
             this.panel7.Controls.Add(this.labelNumeroFilhos);
             this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(12, 1400);
+            this.panel7.Location = new System.Drawing.Point(107, 1420);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1322, 1029);
             this.panel7.TabIndex = 59;
@@ -2028,7 +2023,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Salmon;
-            this.panel5.Location = new System.Drawing.Point(12, 912);
+            this.panel5.Location = new System.Drawing.Point(107, 932);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1322, 10);
             this.panel5.TabIndex = 50;
@@ -2069,7 +2064,7 @@
             this.panelResponsavel2Cadastro.Controls.Add(this.label42);
             this.panelResponsavel2Cadastro.Enabled = false;
             this.panelResponsavel2Cadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelResponsavel2Cadastro.Location = new System.Drawing.Point(12, 912);
+            this.panelResponsavel2Cadastro.Location = new System.Drawing.Point(107, 932);
             this.panelResponsavel2Cadastro.Name = "panelResponsavel2Cadastro";
             this.panelResponsavel2Cadastro.Size = new System.Drawing.Size(1322, 466);
             this.panelResponsavel2Cadastro.TabIndex = 58;
@@ -2391,10 +2386,26 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Salmon;
-            this.panel6.Location = new System.Drawing.Point(12, 428);
+            this.panel6.Location = new System.Drawing.Point(107, 448);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1322, 10);
             this.panel6.TabIndex = 49;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Location = new System.Drawing.Point(107, 1420);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1322, 10);
+            this.panel1.TabIndex = 103;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Gold;
+            this.panel14.Location = new System.Drawing.Point(107, 2470);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1322, 10);
+            this.panel14.TabIndex = 104;
             // 
             // TelaCadastro
             // 
@@ -2404,7 +2415,6 @@
             this.ClientSize = new System.Drawing.Size(1604, 881);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "TelaCadastro";
@@ -2432,8 +2442,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
@@ -2623,5 +2631,7 @@
         private System.Windows.Forms.TextBox txtConvenio;
         private System.Windows.Forms.CheckBox checkBoxConvenio;
         private System.Windows.Forms.CheckBox checkBoxVisao;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel1;
     }
 }
