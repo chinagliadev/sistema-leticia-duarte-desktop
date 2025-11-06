@@ -11,30 +11,30 @@ namespace sistema_leticia_duarte_desktop.auxiliar
     {
 
         public int CadastrarMatricula(
-             int aluno_id,
-             int estrutura_familiar_id,
-             int funcionario_id,
-             int responsavel_1_id,
-             int responsavel_2_id, 
-             int pessoa_autorizada_1_id,
-             int pessoa_autorizada_2_id,
-             int pessoa_autorizada_3_id,
-             int pessoa_autorizada_4_id
-         )
+       int aluno_id,
+       int estrutura_familiar_id,
+       int funcionario_id,
+       int responsavel_1_id,
+       int responsavel_2_id,
+       int? pessoa_autorizada_1_id = null,
+       int? pessoa_autorizada_2_id = null,
+       int? pessoa_autorizada_3_id = null,
+       int? pessoa_autorizada_4_id = null
+   )
         {
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
             {
                 try
                 {
                     string sql = @"
-                        INSERT INTO tb_matricula 
-                            (aluno_id, estrutura_familiar_id, funcionario_id, responsavel_1_id, responsavel_2_id, 
-                             pessoa_autorizada_1_id, pessoa_autorizada_2_id, pessoa_autorizada_3_id, pessoa_autorizada_4_id)
-                        VALUES
-                            (@aluno_id, @estrutura_familiar_id, @funcionario_id, @responsavel_1_id, @responsavel_2_id, 
-                             @pessoa_autorizada_1_id, @pessoa_autorizada_2_id, @pessoa_autorizada_3_id, @pessoa_autorizada_4_id);
-                        SELECT LAST_INSERT_ID();
-                    ";
+                INSERT INTO tb_matricula 
+                    (aluno_id, estrutura_familiar_id, funcionario_id, responsavel_1_id, responsavel_2_id, 
+                     pessoa_autorizada_1_id, pessoa_autorizada_2_id, pessoa_autorizada_3_id, pessoa_autorizada_4_id)
+                VALUES
+                    (@aluno_id, @estrutura_familiar_id, @funcionario_id, @responsavel_1_id, @responsavel_2_id, 
+                     @pessoa_autorizada_1_id, @pessoa_autorizada_2_id, @pessoa_autorizada_3_id, @pessoa_autorizada_4_id);
+                SELECT LAST_INSERT_ID();
+            ";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
@@ -43,10 +43,29 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                         cmd.Parameters.AddWithValue("@funcionario_id", funcionario_id);
                         cmd.Parameters.AddWithValue("@responsavel_1_id", responsavel_1_id);
                         cmd.Parameters.AddWithValue("@responsavel_2_id", responsavel_2_id);
-                        cmd.Parameters.AddWithValue("@pessoa_autorizada_1_id", pessoa_autorizada_1_id);
-                        cmd.Parameters.AddWithValue("@pessoa_autorizada_2_id", pessoa_autorizada_2_id);
-                        cmd.Parameters.AddWithValue("@pessoa_autorizada_3_id", pessoa_autorizada_3_id);
-                        cmd.Parameters.AddWithValue("@pessoa_autorizada_4_id", pessoa_autorizada_4_id);
+
+
+                        object valorAutorizada1 = pessoa_autorizada_1_id.HasValue
+                            ? (object)pessoa_autorizada_1_id.Value
+                            : (object)DBNull.Value;
+                        cmd.Parameters.Add("@pessoa_autorizada_1_id", MySqlDbType.Int32).Value = valorAutorizada1;
+
+                        object valorAutorizada2 = pessoa_autorizada_2_id.HasValue
+                            ? (object)pessoa_autorizada_2_id.Value
+                            : (object)DBNull.Value;
+                        cmd.Parameters.Add("@pessoa_autorizada_2_id", MySqlDbType.Int32).Value = valorAutorizada2;
+
+                        object valorAutorizada3 = pessoa_autorizada_3_id.HasValue
+                            ? (object)pessoa_autorizada_3_id.Value
+                            : (object)DBNull.Value;
+                        cmd.Parameters.Add("@pessoa_autorizada_3_id", MySqlDbType.Int32).Value = valorAutorizada3;
+
+                        object valorAutorizada4 = pessoa_autorizada_4_id.HasValue
+                            ? (object)pessoa_autorizada_4_id.Value
+                            : (object)DBNull.Value;
+                        cmd.Parameters.Add("@pessoa_autorizada_4_id", MySqlDbType.Int32).Value = valorAutorizada4;
+
+                        // -----------------------------------------------------------------
 
                         int idInserido = Convert.ToInt32(cmd.ExecuteScalar());
                         return idInserido;
@@ -54,7 +73,6 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                 }
                 catch (Exception ex)
                 {
-                    // A mensagem de erro do seu print (Foreign Key) provavelmente virá daqui se o ID_PLACEHOLDER não existir
                     MessageBox.Show($"Erro ao cadastrar matrícula: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return -1;
                 }

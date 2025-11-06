@@ -16,7 +16,7 @@ namespace sistema_leticia_duarte_desktop.view
     public partial class TelaCadastro : Form
     {
         private int funcionarioLogadoId;
-        private const int ID_PLACEHOLDER_FK = 1;
+        
         public TelaCadastro(int idFuncionario)
         {
             InitializeComponent();
@@ -275,7 +275,6 @@ namespace sistema_leticia_duarte_desktop.view
             {
                 try
                 {
-                    // --- CADASTRO DO ENDEREÇO ---
                     EnderecoAuxiliar enderecoAux = new EnderecoAuxiliar();
                     int enderecoId = enderecoAux.CadastrarEndereco(
                         txtCepAlunoCadastro.Text,
@@ -286,7 +285,6 @@ namespace sistema_leticia_duarte_desktop.view
                         txtComplementoCadastroAluno.Text
                     );
 
-                    // --- CADASTRO DO ALUNO ---
                     Alunos aluno = new Alunos
                     {
                         ra_aluno = txtRaAlunoCadastro.Text,
@@ -307,7 +305,6 @@ namespace sistema_leticia_duarte_desktop.view
                     AlunoAuxiliar alunoAux = new AlunoAuxiliar();
                     int alunoId = alunoAux.CadastrarAluno(aluno);
 
-                    // --- CADASTRO DOS RESPONSÁVEIS ---
                     Responsaveis responsavelAux = new Responsaveis();
 
                     int responsavel1Id = responsavelAux.CadastrarResponsavel(
@@ -349,10 +346,9 @@ namespace sistema_leticia_duarte_desktop.view
                     }
                     else
                     {
-                        responsavel2Id = ID_PLACEHOLDER_FK;
+                        responsavel2Id = null;
                     }
 
-                    // --- CADASTRO DA ESTRUTURA FAMILIAR ---
                     EstruturaFamiliarAuxiliar estruturaAux = new EstruturaFamiliarAuxiliar();
                     int estruturaId = estruturaAux.CadastrarEstruturaFamiliar(
                         checkBoxPaisVivemJuntos.Checked,
@@ -388,26 +384,70 @@ namespace sistema_leticia_duarte_desktop.view
                         checkBoxOutros.Text
                     );
 
-                    // --- CADASTRO DAS PESSOAS AUTORIZADAS ---
                     PessoaAutorizadaAuxiliar pessoaAux = new PessoaAutorizadaAuxiliar();
 
-                    int pessoaAutorizada1 = !string.IsNullOrWhiteSpace(txtNomePessoaAutorizada1.Text)
-                        ? pessoaAux.CadastrarPessoaAutorizada(txtNomePessoaAutorizada1.Text, LimparMascara(txtCpfPessoaAutorizada1.Text), LimparMascara(txtTelefonePessoaAutorizada1.Text), "Responsável autorizado")
-                        : ID_PLACEHOLDER_FK;
+                    int? idAutorizada1Final;
+                    int? idAutorizada2Final;
+                    int? idAutorizada3Final;
+                    int? idAutorizada4Final;
 
-                    int pessoaAutorizada2 = !string.IsNullOrWhiteSpace(txtNomePessoaAutorizada2.Text)
-                        ? pessoaAux.CadastrarPessoaAutorizada(txtNomePessoaAutorizada2.Text, LimparMascara(txtCpfPessoaAutorizada2.Text), LimparMascara(txtTelefonePessoaAutorizada2.Text), "Responsável autorizado")
-                        : ID_PLACEHOLDER_FK;
+                    string nomePessoaAutorizada1 = txtNomePessoaAutorizada1.Text;
+                    string cpfPessoaAutorizada1 = LimparMascara(txtCpfPessoaAutorizada1.Text);
+                    string celularPessoaAutorizada1 = LimparMascara(txtTelefonePessoaAutorizada1.Text);
+                    string parentescoPessoaAutorizada1 = comboBoxParentescoAutorizada1.Text;
 
-                    int pessoaAutorizada3 = !string.IsNullOrWhiteSpace(txtNomePessoaAutorizada3.Text)
-                        ? pessoaAux.CadastrarPessoaAutorizada(txtNomePessoaAutorizada3.Text, LimparMascara(txtCpfPessoaAutorizada3.Text), LimparMascara(txtTelefonePessoaAutorizada3.Text), "Responsável autorizado")
-                        : ID_PLACEHOLDER_FK;
+                    int id_retornado_1 = pessoaAux.CadastrarPessoaAutorizada(
+                        nomePessoaAutorizada1,
+                        cpfPessoaAutorizada1,
+                        celularPessoaAutorizada1,
+                        parentescoPessoaAutorizada1
+                    );
+                    idAutorizada1Final = (id_retornado_1 > 0) ? (int?)id_retornado_1 : null;
 
-                    int pessoaAutorizada4 = !string.IsNullOrWhiteSpace(txtNomePessoaAutorizada4.Text)
-                        ? pessoaAux.CadastrarPessoaAutorizada(txtNomePessoaAutorizada4.Text, LimparMascara(txtCpfPessoaAutorizada4.Text), LimparMascara(txtTelefonePessoaAutorizada4.Text), "Responsável autorizado")
-                        : ID_PLACEHOLDER_FK;
 
-                    // --- CADASTRO DA MATRÍCULA ---
+                    string nomePessoaAutorizada2 = txtNomePessoaAutorizada2.Text;
+                    string cpfPessoaAutorizada2 = LimparMascara(txtCpfPessoaAutorizada2.Text);
+                    string celularPessoaAutorizada2 = LimparMascara(txtTelefonePessoaAutorizada2.Text);
+                    string parentescoPessoaAutorizada2 = comboBoxParentescoAutorizada2.Text;
+
+                    int id_retornado_2 = pessoaAux.CadastrarPessoaAutorizada(
+                        nomePessoaAutorizada2,
+                        cpfPessoaAutorizada2,
+                        celularPessoaAutorizada2,
+                        parentescoPessoaAutorizada2
+                    );
+                    idAutorizada2Final = (id_retornado_2 > 0) ? (int?)id_retornado_2 : null;
+
+
+                    string nomePessoaAutorizada3 = txtNomePessoaAutorizada3.Text;
+                    string cpfPessoaAutorizada3 = LimparMascara(txtCpfPessoaAutorizada3.Text);
+                    string celularPessoaAutorizada3 = LimparMascara(txtTelefonePessoaAutorizada3.Text);
+                    string parentescoPessoaAutorizada3 = comboBoxParentescoAutorizada3.Text;
+
+                    int id_retornado_3 = pessoaAux.CadastrarPessoaAutorizada(
+                        nomePessoaAutorizada3,
+                        cpfPessoaAutorizada3,
+                        celularPessoaAutorizada3,
+                        parentescoPessoaAutorizada3
+                    );
+                    idAutorizada3Final = (id_retornado_3 > 0) ? (int?)id_retornado_3 : null;
+
+
+                    string nomePessoaAutorizada4 = txtNomePessoaAutorizada4.Text;
+                    string cpfPessoaAutorizada4 = LimparMascara(txtCpfPessoaAutorizada4.Text);
+                    string celularPessoaAutorizada4 = LimparMascara(txtTelefonePessoaAutorizada4.Text);
+                    string parentescoPessoaAutorizada4 = comboBoxParentescoAutorizada4.Text;
+
+                    int id_retornado_4 = pessoaAux.CadastrarPessoaAutorizada(
+                        nomePessoaAutorizada4,
+                        cpfPessoaAutorizada4,
+                        celularPessoaAutorizada4,
+                        parentescoPessoaAutorizada4
+                    );
+                    idAutorizada4Final = (id_retornado_4 > 0) ? (int?)id_retornado_4 : null;
+
+                    MessageBox.Show("Id 1 " + idAutorizada1Final);
+
                     MatriculaAuxiliar matriculaAux = new MatriculaAuxiliar();
                     int idMatricula = matriculaAux.CadastrarMatricula(
                         alunoId,
@@ -415,12 +455,11 @@ namespace sistema_leticia_duarte_desktop.view
                         funcionarioLogadoId,
                         responsavel1Id,
                         responsavel2Id,
-                        pessoaAutorizada1,
-                        pessoaAutorizada2,
-                        pessoaAutorizada3,
-                        pessoaAutorizada4
+                        pessoa_autorizada_1_id: idAutorizada1Final, // Passa o valor convertido (ID ou NULL)
+                        pessoa_autorizada_2_id: idAutorizada2Final, // Passa o valor convertido (ID ou NULL)
+                        pessoa_autorizada_3_id: idAutorizada3Final, // Passa o valor convertido (ID ou NULL)
+                        pessoa_autorizada_4_id: idAutorizada4Final  // Passa o valor convertido (ID ou NULL)
                     );
-
                     transaction.Commit();
                     MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -514,8 +553,7 @@ namespace sistema_leticia_duarte_desktop.view
             if (txtEmailResponsavel.Visible && string.IsNullOrWhiteSpace(txtEmailResponsavel.Text))
                 erros.AppendLine("O email do responsável 1 é obrigatório.");
 
-            // --- RESPONSÁVEL 2 ---
-            if (panelResponsavel2Cadastro.Visible)
+            if (!panelResponsavel2Cadastro.Visible)
             {
                 if (txtNomeResponsavel2Cadastro.Visible && string.IsNullOrWhiteSpace(txtNomeResponsavel2Cadastro.Text))
                     erros.AppendLine("O nome do responsável 2 é obrigatório.");
@@ -539,7 +577,6 @@ namespace sistema_leticia_duarte_desktop.view
                     erros.AppendLine("O email do responsável 2 é obrigatório.");
             }
 
-            // Mostrar erros, se houver
             if (erros.Length > 0)
             {
                 MessageBox.Show(erros.ToString(), "Campos obrigatórios - Responsáveis", MessageBoxButtons.OK, MessageBoxIcon.Warning);

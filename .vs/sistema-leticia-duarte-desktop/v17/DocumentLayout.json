@@ -1,10 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\",
+  "WorkspaceRootPath": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\classes\\pessoaautorizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\classes\\pessoaautorizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\responsaveis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\responsaveis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\pessoaautorizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\pessoaautorizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\funcionarioauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\funcionarioauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\view\\telacadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\estruturafamiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\estruturafamiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\alunoauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\alunoauxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|c:\\users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\conexaoauxilixar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4999997-5487-4630-94CA-7E57D88EC40A}|sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop.csproj|solutionrelative:sistema-leticia-duarte-desktop\\auxiliar\\conexaoauxilixar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,11 +66,128 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Responsaveis.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Responsaveis.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\Responsaveis.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Responsaveis.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\Responsaveis.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwDwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T14:40:01.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ConexaoAuxilixar.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\ConexaoAuxilixar.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\ConexaoAuxilixar.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\ConexaoAuxilixar.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\ConexaoAuxilixar.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T14:08:46.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AlunoAuxiliar.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\AlunoAuxiliar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T14:08:39.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EstruturaFamiliar.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\EstruturaFamiliar.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\EstruturaFamiliar.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\EstruturaFamiliar.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\EstruturaFamiliar.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T14:08:33.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FuncionarioAuxiliar.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\FuncionarioAuxiliar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T14:08:29.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PessoaAutorizada.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\PessoaAutorizada.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\PessoaAutorizada.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\PessoaAutorizada.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\PessoaAutorizada.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T12:55:56.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Matricula.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\auxiliar\\Matricula.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T11:53:49.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TelaCadastro.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
+              "Title": "TelaCadastro.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
               "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
-              "ToolTip": "C:\\Users\\china\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T11:53:21.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PessoaAutorizada.cs",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\classes\\PessoaAutorizada.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\classes\\PessoaAutorizada.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\classes\\PessoaAutorizada.cs",
+              "RelativeToolTip": "sistema-leticia-duarte-desktop\\classes\\PessoaAutorizada.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T11:53:02.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TelaCadastro.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
+              "RelativeDocumentMoniker": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs",
+              "ToolTip": "C:\\Users\\victor.cneto1\\source\\repos\\sistema-leticia-duarte-desktop\\sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]",
               "RelativeToolTip": "sistema-leticia-duarte-desktop\\view\\TelaCadastro.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-06T03:25:30.496Z",

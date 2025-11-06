@@ -10,37 +10,63 @@ namespace sistema_leticia_duarte_desktop.auxiliar
 {
     internal class PessoaAutorizadaAuxiliar
     {
-        public int CadastrarPessoaAutorizada(string nome, string cpf, string celular, string parentesco)
+        public int CadastrarPessoaAutorizada(
+            string nome = null,
+            string cpf = null,
+            string celular = null,
+            string parentesco = null)
         {
+            if (string.IsNullOrWhiteSpace(nome) &&
+        string.IsNullOrWhiteSpace(cpf) &&
+        string.IsNullOrWhiteSpace(celular) &&
+        string.IsNullOrWhiteSpace(parentesco))
+            {
+               
+
+                return 0; 
+            }
+
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
             {
                 try
                 {
+
                     string sql = @"
-                        INSERT INTO tb_pessoas_autorizadas (nome, cpf, celular, parentesco)
-                        VALUES (@nome, @cpf, @celular, @parentesco);
-                        SELECT LAST_INSERT_ID();
-                    ";
+                INSERT INTO tb_pessoas_autorizadas (nome, cpf, celular, parentesco)
+                VALUES (@nome, @cpf, @celular, @parentesco);
+            ";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@nome", nome);
-                        cmd.Parameters.AddWithValue("@cpf", cpf);
-                        cmd.Parameters.AddWithValue("@celular", celular);
-                        cmd.Parameters.AddWithValue("@parentesco", parentesco);
+                        object valorNome = string.IsNullOrWhiteSpace(nome) ? (object)DBNull.Value : nome;
+                        object valorCpf = string.IsNullOrWhiteSpace(cpf) ? (object)DBNull.Value : cpf;
+                        object valorCelular = string.IsNullOrWhiteSpace(celular) ? (object)DBNull.Value : celular;
+                        object valorParentesco = string.IsNullOrWhiteSpace(parentesco) ? (object)DBNull.Value : parentesco;
 
-                        int idInserido = Convert.ToInt32(cmd.ExecuteScalar());
+                        cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = valorNome;
+                        cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = valorCpf;
+                        cmd.Parameters.Add("@celular", MySqlDbType.VarChar).Value = valorCelular;
+                        cmd.Parameters.Add("@parentesco", MySqlDbType.VarChar).Value = valorParentesco;
+
+                        cmd.ExecuteNonQuery();
+
+                        int idInserido = (int)cmd.LastInsertedId;
                         return idInserido;
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Erro ao cadastrar pessoa autorizada: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.Message);
+
                     return -1;
                 }
             }
         }
 
-       
+
+
+
     }
 }
