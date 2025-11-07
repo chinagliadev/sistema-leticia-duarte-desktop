@@ -76,8 +76,10 @@ namespace sistema_leticia_duarte_desktop.view
                 MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 TelaCadastro telaCadastro = new TelaCadastro(idFuncionario);
-                telaCadastro.Show();
-                this.Hide();
+
+
+                TelaListarAlunos telaListarAlunos = new TelaListarAlunos();
+                telaListarAlunos.Show();
             }
             else
             {

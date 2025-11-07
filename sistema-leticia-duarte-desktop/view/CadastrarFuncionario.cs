@@ -27,6 +27,43 @@ namespace sistema_leticia_duarte_desktop.view
             this.Close();
         }
 
+        private bool ValidarCpf(string cpf)
+        {
+            if (string.IsNullOrWhiteSpace(cpf))
+                return false;
+
+            string numeros = new string(cpf.Where(char.IsDigit).ToArray());
+
+            if (numeros.Length != 11)
+                return false;
+
+
+            if (numeros.Distinct().Count() == 1)
+                return false;
+
+
+            int soma = 0;
+            for (int i = 0; i < 9; i++)
+                soma += (numeros[i] - '0') * (10 - i);
+
+            int resto = (soma * 10) % 11;
+            if (resto == 10) resto = 0;
+            if (resto != (numeros[9] - '0'))
+                return false;
+
+
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += (numeros[i] - '0') * (11 - i);
+
+            resto = (soma * 10) % 11;
+            if (resto == 10) resto = 0;
+            if (resto != (numeros[10] - '0'))
+                return false;
+
+            return true;
+        }
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Funcionario funcionario = new Funcionario();
@@ -58,6 +95,12 @@ namespace sistema_leticia_duarte_desktop.view
             {
                 MessageBox.Show("Por favor, informe um CPF válido (11 números).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCpfCadastro.Focus();
+                return;
+            }
+
+            if (!ValidarCpf(cpf))
+            {
+                MessageBox.Show("CPF inválido. Verifique e tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -124,6 +167,9 @@ namespace sistema_leticia_duarte_desktop.view
                 return;
             }
 
+            cpf = txtCpfCadastro.Text;
+            celular = txtTelefoneCadastro.Text;
+
             funcionario.nome = nome;
             funcionario.email = email;
             funcionario.cpf = cpf;
@@ -134,7 +180,9 @@ namespace sistema_leticia_duarte_desktop.view
             auxiliar.cadastrarFuncionario(funcionario);
 
             MessageBox.Show("Funcionário cadastrado com sucesso!", "Cadastro Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            this.Close();
+            Login login = new Login();
+            login.Show();
         }
 
     }

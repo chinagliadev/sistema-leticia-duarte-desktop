@@ -40,7 +40,7 @@ namespace sistema_leticia_duarte_desktop.auxiliar
             string outrasDoencas,
             bool transporteCarro,
             bool transporteVan,
-            bool transporteAPe,
+            int transporteAPe,
             int transporteOutrosDesc
         )
         {
@@ -98,7 +98,7 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                         cmd.Parameters.AddWithValue("@outras_doencas", outrasDoencas);
                         cmd.Parameters.AddWithValue("@transporte_carro", transporteCarro ? 1 : 0);
                         cmd.Parameters.AddWithValue("@transporte_van", transporteVan ? 1 : 0);
-                        cmd.Parameters.AddWithValue("@transporte_a_pe", transporteAPe ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@transporte_a_pe", transporteAPe);
                         cmd.Parameters.AddWithValue("@transporte_outros_desc", transporteOutrosDesc);
 
                         int idInserido = Convert.ToInt32(cmd.ExecuteScalar());

@@ -33,6 +33,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTelefoneCadastro = new System.Windows.Forms.MaskedTextBox();
+            this.txtCpfCadastro = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.txtEmailCadastro = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtNomeCadastro = new System.Windows.Forms.TextBox();
-            this.txtCpfCadastro = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefoneCadastro = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +112,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 715);
             this.panel1.TabIndex = 7;
+            // 
+            // txtTelefoneCadastro
+            // 
+            this.txtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefoneCadastro.Location = new System.Drawing.Point(630, 542);
+            this.txtTelefoneCadastro.Mask = "(00) 00000-0000";
+            this.txtTelefoneCadastro.Name = "txtTelefoneCadastro";
+            this.txtTelefoneCadastro.Size = new System.Drawing.Size(507, 31);
+            this.txtTelefoneCadastro.TabIndex = 18;
+            // 
+            // txtCpfCadastro
+            // 
+            this.txtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpfCadastro.Location = new System.Drawing.Point(630, 458);
+            this.txtCpfCadastro.Mask = "000,000,000-00";
+            this.txtCpfCadastro.Name = "txtCpfCadastro";
+            this.txtCpfCadastro.Size = new System.Drawing.Size(507, 31);
+            this.txtCpfCadastro.TabIndex = 8;
             // 
             // label8
             // 
@@ -273,24 +291,6 @@
             this.txtNomeCadastro.Name = "txtNomeCadastro";
             this.txtNomeCadastro.Size = new System.Drawing.Size(507, 31);
             this.txtNomeCadastro.TabIndex = 2;
-            // 
-            // txtCpfCadastro
-            // 
-            this.txtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpfCadastro.Location = new System.Drawing.Point(630, 458);
-            this.txtCpfCadastro.Mask = "000.000.000-00";
-            this.txtCpfCadastro.Name = "txtCpfCadastro";
-            this.txtCpfCadastro.Size = new System.Drawing.Size(507, 31);
-            this.txtCpfCadastro.TabIndex = 8;
-            // 
-            // txtTelefoneCadastro
-            // 
-            this.txtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefoneCadastro.Location = new System.Drawing.Point(630, 542);
-            this.txtTelefoneCadastro.Mask = "(00) 000000-0000";
-            this.txtTelefoneCadastro.Name = "txtTelefoneCadastro";
-            this.txtTelefoneCadastro.Size = new System.Drawing.Size(507, 31);
-            this.txtTelefoneCadastro.TabIndex = 18;
             // 
             // CadastrarFuncionario
             // 

@@ -259,7 +259,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(23, 84);
+            this.panel2.Location = new System.Drawing.Point(23, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1569, 99);
             this.panel2.TabIndex = 1;
@@ -268,7 +268,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 58);
+            this.label2.Location = new System.Drawing.Point(31, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 33);
             this.label2.TabIndex = 4;
@@ -278,7 +278,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 16);
+            this.label1.Location = new System.Drawing.Point(31, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 33);
             this.label1.TabIndex = 3;
@@ -563,7 +563,7 @@
             // 
             this.txtRgAlunoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRgAlunoCadastro.Location = new System.Drawing.Point(850, 58);
-            this.txtRgAlunoCadastro.Mask = "00.000.000-0";
+            this.txtRgAlunoCadastro.Mask = "00,000,000-0";
             this.txtRgAlunoCadastro.Name = "txtRgAlunoCadastro";
             this.txtRgAlunoCadastro.Size = new System.Drawing.Size(222, 26);
             this.txtRgAlunoCadastro.TabIndex = 16;
@@ -572,7 +572,7 @@
             // 
             this.txtCpfAlunoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfAlunoCadastro.Location = new System.Drawing.Point(594, 58);
-            this.txtCpfAlunoCadastro.Mask = "000.000.000-00";
+            this.txtCpfAlunoCadastro.Mask = "000,000,000-00";
             this.txtCpfAlunoCadastro.Name = "txtCpfAlunoCadastro";
             this.txtCpfAlunoCadastro.Size = new System.Drawing.Size(234, 26);
             this.txtCpfAlunoCadastro.TabIndex = 15;
@@ -1031,7 +1031,7 @@
             this.panelPrincipal.Controls.Add(this.panel6);
             this.panelPrincipal.Controls.Add(this.panel3);
             this.panelPrincipal.Controls.Add(this.panel4);
-            this.panelPrincipal.Location = new System.Drawing.Point(23, 200);
+            this.panelPrincipal.Location = new System.Drawing.Point(23, 117);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1569, 682);
             this.panelPrincipal.TabIndex = 49;
@@ -1286,7 +1286,7 @@
             // 
             this.txtCpfPessoaAutorizada4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfPessoaAutorizada4.Location = new System.Drawing.Point(539, 351);
-            this.txtCpfPessoaAutorizada4.Mask = "000.000.000-00";
+            this.txtCpfPessoaAutorizada4.Mask = "000,000,000-00";
             this.txtCpfPessoaAutorizada4.Name = "txtCpfPessoaAutorizada4";
             this.txtCpfPessoaAutorizada4.Size = new System.Drawing.Size(234, 26);
             this.txtCpfPessoaAutorizada4.TabIndex = 68;
@@ -1295,7 +1295,7 @@
             // 
             this.txtCpfPessoaAutorizada3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfPessoaAutorizada3.Location = new System.Drawing.Point(539, 270);
-            this.txtCpfPessoaAutorizada3.Mask = "000.000.000-00";
+            this.txtCpfPessoaAutorizada3.Mask = "000,000,000-00";
             this.txtCpfPessoaAutorizada3.Name = "txtCpfPessoaAutorizada3";
             this.txtCpfPessoaAutorizada3.Size = new System.Drawing.Size(234, 26);
             this.txtCpfPessoaAutorizada3.TabIndex = 67;
@@ -1304,7 +1304,7 @@
             // 
             this.txtCpfPessoaAutorizada2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfPessoaAutorizada2.Location = new System.Drawing.Point(539, 188);
-            this.txtCpfPessoaAutorizada2.Mask = "000.000.000-00";
+            this.txtCpfPessoaAutorizada2.Mask = "000,000,000-00";
             this.txtCpfPessoaAutorizada2.Name = "txtCpfPessoaAutorizada2";
             this.txtCpfPessoaAutorizada2.Size = new System.Drawing.Size(234, 26);
             this.txtCpfPessoaAutorizada2.TabIndex = 66;
@@ -1367,7 +1367,7 @@
             // 
             this.txtCpfPessoaAutorizada1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfPessoaAutorizada1.Location = new System.Drawing.Point(539, 110);
-            this.txtCpfPessoaAutorizada1.Mask = "000.000.000-00";
+            this.txtCpfPessoaAutorizada1.Mask = "000,000,000-00";
             this.txtCpfPessoaAutorizada1.Name = "txtCpfPessoaAutorizada1";
             this.txtCpfPessoaAutorizada1.Size = new System.Drawing.Size(234, 26);
             this.txtCpfPessoaAutorizada1.TabIndex = 59;
@@ -2118,6 +2118,7 @@
             this.btnRemoverResponsavel2.TabIndex = 56;
             this.btnRemoverResponsavel2.Text = "Desativar Segundo Responsavel";
             this.btnRemoverResponsavel2.UseVisualStyleBackColor = false;
+            this.btnRemoverResponsavel2.Visible = false;
             this.btnRemoverResponsavel2.Click += new System.EventHandler(this.btnRemoverResponsavel2_Click);
             // 
             // txtTelefoneTrabalhoResponsavel2Cadastro
