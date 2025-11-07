@@ -139,6 +139,12 @@
     <Compile Include="view\TelaCadastro.Designer.cs">
       <DependentUpon>TelaCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\TelaEditarCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TelaEditarCadastro.Designer.cs">
+      <DependentUpon>TelaEditarCadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\TelaListarAlunos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\TelaCadastro.resx">
       <DependentUpon>TelaCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TelaEditarCadastro.resx">
+      <DependentUpon>TelaEditarCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TelaListarAlunos.resx">
       <DependentUpon>TelaListarAlunos.cs</DependentUpon>

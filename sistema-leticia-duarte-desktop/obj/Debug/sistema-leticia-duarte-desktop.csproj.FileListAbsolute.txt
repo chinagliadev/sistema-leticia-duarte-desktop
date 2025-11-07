@@ -90,3 +90,5 @@ C:\Users\victor.cneto1\source\repos\sistema-leticia-duarte-desktop\sistema-letic
 C:\Users\victor.cneto1\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\bin\Debug\BCrypt.Net-Next.xml
 C:\Users\victor.cneto1\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema_leticia_duarte_desktop.view.TelaCadastro.resources
 C:\Users\victor.cneto1\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema_leticia_duarte_desktop.view.TelaListarAlunos.resources
+C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema_leticia_duarte_desktop.view.TelaEditarCadastro.resources
+C:\Users\china\source\repos\sistema-leticia-duarte-desktop\sistema-leticia-duarte-desktop\obj\Debug\sistema_leticia_duarte_desktop.view.TelaListarAlunos.resources

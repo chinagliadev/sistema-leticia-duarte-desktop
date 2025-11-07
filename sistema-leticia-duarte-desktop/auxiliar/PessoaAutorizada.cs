@@ -21,9 +21,9 @@ namespace sistema_leticia_duarte_desktop.auxiliar
         string.IsNullOrWhiteSpace(celular) &&
         string.IsNullOrWhiteSpace(parentesco))
             {
-               
 
-                return 0; 
+
+                return 0;
             }
 
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
@@ -65,6 +65,52 @@ namespace sistema_leticia_duarte_desktop.auxiliar
             }
         }
 
+        public bool EditarPessoaAutorizada(
+    int id,
+    string nome = null,
+    string cpf = null,
+    string celular = null,
+    string parentesco = null)
+        {
+            using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
+            {
+                try
+                {
+                    string sql = @"
+                UPDATE tb_pessoas_autorizadas SET
+                    nome = @nome,
+                    cpf = @cpf,
+                    celular = @celular,
+                    parentesco = @parentesco
+                WHERE id = @id;
+            ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        object valorNome = string.IsNullOrWhiteSpace(nome) ? (object)DBNull.Value : nome;
+                        object valorCpf = string.IsNullOrWhiteSpace(cpf) ? (object)DBNull.Value : cpf;
+                        object valorCelular = string.IsNullOrWhiteSpace(celular) ? (object)DBNull.Value : celular;
+                        object valorParentesco = string.IsNullOrWhiteSpace(parentesco) ? (object)DBNull.Value : parentesco;
+
+                        cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = valorNome;
+                        cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = valorCpf;
+                        cmd.Parameters.Add("@celular", MySqlDbType.VarChar).Value = valorCelular;
+                        cmd.Parameters.Add("@parentesco", MySqlDbType.VarChar).Value = valorParentesco;
+
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhas = cmd.ExecuteNonQuery();
+                        return linhas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao editar pessoa autorizada: {ex.Message}",
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
 
 
 

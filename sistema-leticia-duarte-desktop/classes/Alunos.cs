@@ -9,6 +9,7 @@ namespace sistema_leticia_duarte_desktop.classes
 {
     internal class Alunos
     {
+        public int id { get; set; }
         public string nome { get; set; }
         public string ra_aluno { get; set; }
         public string cpf { get; set; }

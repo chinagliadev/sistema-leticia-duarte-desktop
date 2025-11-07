@@ -46,7 +46,6 @@ namespace sistema_leticia_duarte_desktop.view
             a.remedio AS 'Remédio',
             a.gotas AS 'Gotas',
             a.permissao_foto AS 'Permissão Foto',
-            a.data_cadastro AS 'Cadastro',
 
             e.cep AS 'CEP',
             e.endereco AS 'Logradouro',
@@ -148,10 +147,8 @@ namespace sistema_leticia_duarte_desktop.view
                 dataGridView1.SelectedRows[0].Cells["AlunoID"].Value
             );
 
-            TelaCadastro tela = new TelaCadastro(alunoId);
-            tela.ShowDialog();
-
-            listarAlunos();
+            TelaEditarCadastro telaEditar = new TelaEditarCadastro(alunoId);
+            telaEditar.Show();
         }
     }
 }
