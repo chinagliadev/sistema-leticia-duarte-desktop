@@ -117,7 +117,7 @@
             this.txtNumeroFilhosCadastro = new System.Windows.Forms.TextBox();
             this.labelNumeroFilhos = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panelResponsavel2Cadastro = new System.Windows.Forms.Panel();
+            this.panelResponsavel2Editar = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoverResponsavel2 = new System.Windows.Forms.Button();
@@ -185,7 +185,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnAdicionarResponsavel1Cadastro = new System.Windows.Forms.Button();
+            this.btnAdicionarResponsavelEditar = new System.Windows.Forms.Button();
             this.txtTelefoneTrabalhoResponsavelCadastro = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefoneResponsavelCadastro = new System.Windows.Forms.MaskedTextBox();
             this.labelRendaExtra = new System.Windows.Forms.Label();
@@ -216,7 +216,7 @@
             this.panelPrincipal.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panelResponsavel2Cadastro.SuspendLayout();
+            this.panelResponsavel2Editar.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -230,7 +230,7 @@
             this.panelPrincipal.Controls.Add(this.panel11);
             this.panelPrincipal.Controls.Add(this.panel7);
             this.panelPrincipal.Controls.Add(this.panel5);
-            this.panelPrincipal.Controls.Add(this.panelResponsavel2Cadastro);
+            this.panelPrincipal.Controls.Add(this.panelResponsavel2Editar);
             this.panelPrincipal.Controls.Add(this.panel6);
             this.panelPrincipal.Controls.Add(this.panel3);
             this.panelPrincipal.Controls.Add(this.panel4);
@@ -1022,6 +1022,7 @@
             this.radioButtonAlugada.TabStop = true;
             this.radioButtonAlugada.Text = "alugada";
             this.radioButtonAlugada.UseVisualStyleBackColor = true;
+            this.radioButtonAlugada.CheckedChanged += new System.EventHandler(this.radioButtonAlugada_CheckedChanged);
             // 
             // radioButtonCedida
             // 
@@ -1033,6 +1034,7 @@
             this.radioButtonCedida.TabStop = true;
             this.radioButtonCedida.Text = "cedida";
             this.radioButtonCedida.UseVisualStyleBackColor = true;
+            this.radioButtonCedida.CheckedChanged += new System.EventHandler(this.radioButtonCedida_CheckedChanged);
             // 
             // radioButtoMoradiaPropria
             // 
@@ -1044,6 +1046,7 @@
             this.radioButtoMoradiaPropria.TabStop = true;
             this.radioButtoMoradiaPropria.Text = "propria";
             this.radioButtoMoradiaPropria.UseVisualStyleBackColor = true;
+            this.radioButtoMoradiaPropria.CheckedChanged += new System.EventHandler(this.radioButtoMoradiaPropria_CheckedChanged);
             // 
             // label43
             // 
@@ -1239,50 +1242,51 @@
             this.panel5.Size = new System.Drawing.Size(1322, 10);
             this.panel5.TabIndex = 50;
             // 
-            // panelResponsavel2Cadastro
+            // panelResponsavel2Editar
             // 
-            this.panelResponsavel2Cadastro.AutoScroll = true;
-            this.panelResponsavel2Cadastro.BackColor = System.Drawing.Color.White;
-            this.panelResponsavel2Cadastro.Controls.Add(this.panel9);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label26);
-            this.panelResponsavel2Cadastro.Controls.Add(this.btnRemoverResponsavel2);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtTelefoneTrabalhoResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtTelefoneResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label2RendaExtra);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtRendaExtraResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.checkBoxRendaExtraResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label31);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtSalarioResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.comboBoxEstadoCivilResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtDataNascimentoResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.comboBoxTipoResponsavel2);
-            this.panelResponsavel2Cadastro.Controls.Add(this.comboBoxEscolaridadeResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label32);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtHorarioResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label33);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label34);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label35);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtProfissaoResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtNomeEmpresaResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label36);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label37);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtEmailResponsavel2);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label38);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label39);
-            this.panelResponsavel2Cadastro.Controls.Add(this.txtNomeResponsavel2Cadastro);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label40);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label41);
-            this.panelResponsavel2Cadastro.Controls.Add(this.label42);
-            this.panelResponsavel2Cadastro.Enabled = false;
-            this.panelResponsavel2Cadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelResponsavel2Cadastro.Location = new System.Drawing.Point(107, 932);
-            this.panelResponsavel2Cadastro.Name = "panelResponsavel2Cadastro";
-            this.panelResponsavel2Cadastro.Size = new System.Drawing.Size(1322, 466);
-            this.panelResponsavel2Cadastro.TabIndex = 58;
+            this.panelResponsavel2Editar.AutoScroll = true;
+            this.panelResponsavel2Editar.BackColor = System.Drawing.Color.White;
+            this.panelResponsavel2Editar.Controls.Add(this.panel9);
+            this.panelResponsavel2Editar.Controls.Add(this.label26);
+            this.panelResponsavel2Editar.Controls.Add(this.btnRemoverResponsavel2);
+            this.panelResponsavel2Editar.Controls.Add(this.txtTelefoneTrabalhoResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.txtTelefoneResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label2RendaExtra);
+            this.panelResponsavel2Editar.Controls.Add(this.txtRendaExtraResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.checkBoxRendaExtraResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label31);
+            this.panelResponsavel2Editar.Controls.Add(this.txtSalarioResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.comboBoxEstadoCivilResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.txtDataNascimentoResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.comboBoxTipoResponsavel2);
+            this.panelResponsavel2Editar.Controls.Add(this.comboBoxEscolaridadeResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label32);
+            this.panelResponsavel2Editar.Controls.Add(this.txtHorarioResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label33);
+            this.panelResponsavel2Editar.Controls.Add(this.label34);
+            this.panelResponsavel2Editar.Controls.Add(this.label35);
+            this.panelResponsavel2Editar.Controls.Add(this.txtProfissaoResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.txtNomeEmpresaResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label36);
+            this.panelResponsavel2Editar.Controls.Add(this.label37);
+            this.panelResponsavel2Editar.Controls.Add(this.txtEmailResponsavel2);
+            this.panelResponsavel2Editar.Controls.Add(this.label38);
+            this.panelResponsavel2Editar.Controls.Add(this.label39);
+            this.panelResponsavel2Editar.Controls.Add(this.txtNomeResponsavel2Cadastro);
+            this.panelResponsavel2Editar.Controls.Add(this.label40);
+            this.panelResponsavel2Editar.Controls.Add(this.label41);
+            this.panelResponsavel2Editar.Controls.Add(this.label42);
+            this.panelResponsavel2Editar.Enabled = false;
+            this.panelResponsavel2Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelResponsavel2Editar.Location = new System.Drawing.Point(107, 932);
+            this.panelResponsavel2Editar.Name = "panelResponsavel2Editar";
+            this.panelResponsavel2Editar.Size = new System.Drawing.Size(1322, 466);
+            this.panelResponsavel2Editar.TabIndex = 58;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Silver;
+            this.panel9.Enabled = false;
             this.panel9.Location = new System.Drawing.Point(26, 394);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1271, 1);
@@ -1302,6 +1306,7 @@
             // btnRemoverResponsavel2
             // 
             this.btnRemoverResponsavel2.BackColor = System.Drawing.Color.Red;
+            this.btnRemoverResponsavel2.Enabled = false;
             this.btnRemoverResponsavel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRemoverResponsavel2.Location = new System.Drawing.Point(850, 401);
             this.btnRemoverResponsavel2.Name = "btnRemoverResponsavel2";
@@ -1309,7 +1314,7 @@
             this.btnRemoverResponsavel2.TabIndex = 56;
             this.btnRemoverResponsavel2.Text = "Desativar Segundo Responsavel";
             this.btnRemoverResponsavel2.UseVisualStyleBackColor = false;
-            this.btnRemoverResponsavel2.Visible = false;
+            this.btnRemoverResponsavel2.Click += new System.EventHandler(this.btnRemoverResponsavel2_Click);
             // 
             // txtTelefoneTrabalhoResponsavel2Cadastro
             // 
@@ -1338,7 +1343,6 @@
             this.label2RendaExtra.Size = new System.Drawing.Size(109, 20);
             this.label2RendaExtra.TabIndex = 54;
             this.label2RendaExtra.Text = "Renda Extra";
-            this.label2RendaExtra.Visible = false;
             // 
             // txtRendaExtraResponsavel2Cadastro
             // 
@@ -1347,7 +1351,6 @@
             this.txtRendaExtraResponsavel2Cadastro.Name = "txtRendaExtraResponsavel2Cadastro";
             this.txtRendaExtraResponsavel2Cadastro.Size = new System.Drawing.Size(251, 26);
             this.txtRendaExtraResponsavel2Cadastro.TabIndex = 53;
-            this.txtRendaExtraResponsavel2Cadastro.Visible = false;
             // 
             // checkBoxRendaExtraResponsavel2Cadastro
             // 
@@ -1639,7 +1642,7 @@
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(107, 34);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1322, 388);
+            this.panel3.Size = new System.Drawing.Size(1322, 390);
             this.panel3.TabIndex = 5;
             // 
             // txtCepMaskCadastro
@@ -1974,7 +1977,7 @@
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.btnAdicionarResponsavel1Cadastro);
+            this.panel4.Controls.Add(this.btnAdicionarResponsavelEditar);
             this.panel4.Controls.Add(this.txtTelefoneTrabalhoResponsavelCadastro);
             this.panel4.Controls.Add(this.txtTelefoneResponsavelCadastro);
             this.panel4.Controls.Add(this.labelRendaExtra);
@@ -2027,16 +2030,17 @@
             this.label16.Tag = "";
             this.label16.Text = "Identificação do Responsavel 1";
             // 
-            // btnAdicionarResponsavel1Cadastro
+            // btnAdicionarResponsavelEditar
             // 
-            this.btnAdicionarResponsavel1Cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(133)))), ((int)(((byte)(208)))));
-            this.btnAdicionarResponsavel1Cadastro.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdicionarResponsavel1Cadastro.Location = new System.Drawing.Point(850, 390);
-            this.btnAdicionarResponsavel1Cadastro.Name = "btnAdicionarResponsavel1Cadastro";
-            this.btnAdicionarResponsavel1Cadastro.Size = new System.Drawing.Size(444, 40);
-            this.btnAdicionarResponsavel1Cadastro.TabIndex = 56;
-            this.btnAdicionarResponsavel1Cadastro.Text = "Ativar Segundo Responsavel";
-            this.btnAdicionarResponsavel1Cadastro.UseVisualStyleBackColor = false;
+            this.btnAdicionarResponsavelEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(133)))), ((int)(((byte)(208)))));
+            this.btnAdicionarResponsavelEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdicionarResponsavelEditar.Location = new System.Drawing.Point(850, 390);
+            this.btnAdicionarResponsavelEditar.Name = "btnAdicionarResponsavelEditar";
+            this.btnAdicionarResponsavelEditar.Size = new System.Drawing.Size(444, 40);
+            this.btnAdicionarResponsavelEditar.TabIndex = 56;
+            this.btnAdicionarResponsavelEditar.Text = "Ativar Segundo Responsavel";
+            this.btnAdicionarResponsavelEditar.UseVisualStyleBackColor = false;
+            this.btnAdicionarResponsavelEditar.Click += new System.EventHandler(this.btnAdicionarResponsavelEditar_Click);
             // 
             // txtTelefoneTrabalhoResponsavelCadastro
             // 
@@ -2333,8 +2337,8 @@
             this.panel11.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panelResponsavel2Cadastro.ResumeLayout(false);
-            this.panelResponsavel2Cadastro.PerformLayout();
+            this.panelResponsavel2Editar.ResumeLayout(false);
+            this.panelResponsavel2Editar.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -2434,7 +2438,7 @@
         private System.Windows.Forms.TextBox txtNumeroFilhosCadastro;
         private System.Windows.Forms.Label labelNumeroFilhos;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panelResponsavel2Cadastro;
+        private System.Windows.Forms.Panel panelResponsavel2Editar;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnRemoverResponsavel2;
@@ -2502,7 +2506,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btnAdicionarResponsavel1Cadastro;
+        private System.Windows.Forms.Button btnAdicionarResponsavelEditar;
         private System.Windows.Forms.MaskedTextBox txtTelefoneTrabalhoResponsavelCadastro;
         private System.Windows.Forms.MaskedTextBox txtTelefoneResponsavelCadastro;
         private System.Windows.Forms.Label labelRendaExtra;

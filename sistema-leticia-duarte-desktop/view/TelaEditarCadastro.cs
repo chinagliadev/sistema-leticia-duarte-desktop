@@ -22,11 +22,26 @@ namespace sistema_leticia_duarte_desktop.view
             _alunoId = alunoId;
             preencherCamposAluno();
             preencherCamposResponsaveis();
+            preencherCamposEstruturaFamiliar();
         }
 
         private void TelaEditarCadastro_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void ativarPanelResponsavel2()
+        {
+            if (!panelResponsavel2Editar.Enabled)
+            {
+                panelResponsavel2Editar.Enabled = true; 
+                
+            }
+            else
+            {
+                MessageBox.Show("Painel já está habilitado!");
+            }
         }
 
         private void preencherCamposAluno()
@@ -148,6 +163,7 @@ namespace sistema_leticia_duarte_desktop.view
                         if (reader.Read())
                         {
                             txtNomeResponsavelCadastro.Text = reader["Resp1Nome"]?.ToString() ?? "";
+
                             comboBoxTipoResponsavel.Text = reader["Resp1Tipo"]?.ToString() ?? "";
                             txtDataNascimentoResponsavelCadastro.Text = reader["Resp1DataNasc"] != DBNull.Value
                                 ? Convert.ToDateTime(reader["Resp1DataNasc"]).ToString("dd/MM/yyyy")
@@ -170,6 +186,23 @@ namespace sistema_leticia_duarte_desktop.view
                                 : "";
 
                             txtNomeResponsavel2Cadastro.Text = reader["Resp2Nome"]?.ToString() ?? "";
+
+                            if (!string.IsNullOrWhiteSpace(txtNomeResponsavel2Cadastro.Text))
+                            {
+                                panelResponsavel2Editar.Enabled = true;
+                                panelResponsavel2Editar.Visible = true;
+
+                                btnRemoverResponsavel2.Enabled = true;
+                            }
+                            else
+                            {
+                                panelResponsavel2Editar.Enabled = false;
+                                panelResponsavel2Editar.Visible = false;
+
+                                btnRemoverResponsavel2.Enabled = false;
+                            }
+
+
                             comboBoxTipoResponsavel2.Text = reader["Resp2Tipo"]?.ToString() ?? "";
                             txtDataNascimentoResponsavel2Cadastro.Text = reader["Resp2DataNasc"] != DBNull.Value
                                 ? Convert.ToDateTime(reader["Resp2DataNasc"]).ToString("dd/MM/yyyy")
@@ -196,10 +229,147 @@ namespace sistema_leticia_duarte_desktop.view
             }
         }
 
+        private void preencherCamposEstruturaFamiliar()
+        {
+            using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
+            {
+                string sql = @"
+        SELECT e.*
+        FROM tb_matricula m
+        LEFT JOIN tb_estrutura_familiar e ON e.id = m.estrutura_familiar_id
+        WHERE m.aluno_id = @alunoId;
+        ";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@alunoId", _alunoId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            checkBoxPaisVivemJuntos.Checked = reader["pais_vivem_juntos"] != DBNull.Value &&
+                                                              Convert.ToBoolean(reader["pais_vivem_juntos"]);
+
+                            txtNumeroFilhosCadastro.Text = reader["numero_filhos"] != DBNull.Value
+                                ? reader["numero_filhos"].ToString()
+                                : "";
+
+                            checkBoxRecebeBolsaFamiliar.Checked = reader["recebe_bolsa_familia"] != DBNull.Value &&
+                                                                  Convert.ToBoolean(reader["recebe_bolsa_familia"]);
+                            txtValorBolsaFamilia.Text = reader["valor"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["valor"]).ToString("F2")
+                                : "";
+
+                            checkBoxPossuiAlergia.Checked = reader["possui_alergia"] != DBNull.Value &&
+                                                            Convert.ToBoolean(reader["possui_alergia"]);
+                            txtExpecifiqueCadastro.Text = reader["especifique_alergia"]?.ToString() ?? "";
+
+                            checkBoxPortadorNecessidadeEspecial.Checked = reader["portador_necessidade_especial"] != DBNull.Value &&
+                                                                          Convert.ToBoolean(reader["portador_necessidade_especial"]);
+                            txtNecessidadeCadastro.Text = reader["qual_necessidade_especial"]?.ToString() ?? "";
+
+                            checkBoxJafezCirurgia.Checked = reader["ja_fez_cirurgia"] != DBNull.Value &&
+                                                            Convert.ToBoolean(reader["ja_fez_cirurgia"]);
+                            txtCirurgiaCadastro.Text = reader["qual_cirurgia"]?.ToString() ?? "";
+
+                            checkBoxVacina.Checked = reader["vacina_catapora_varicela"] != DBNull.Value &&
+                                                     Convert.ToBoolean(reader["vacina_catapora_varicela"]);
+
+                            string tipoMoradia = reader["tipo_moradia"]?.ToString() ?? "";
+                            radioButtoMoradiaPropria.Checked = tipoMoradia == "propria";
+                            radioButtonAlugada.Checked = tipoMoradia == "alugada";
+                            radioButtonCedida.Checked = tipoMoradia == "cedida";
+
+                            txtCampoAluguel.Text = reader["valor_aluguel"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["valor_aluguel"]).ToString("F2")
+                                : "";
+
+                            txtCampoAluguel.Visible = tipoMoradia == "alugada";
+                            txtCampoAluguel.Enabled = tipoMoradia == "alugada";
+                            labelValorAlugue.Visible = tipoMoradia == "alugada";
 
 
 
+                            checkBoxAnemia.Checked = reader["doenca_anemia"] != DBNull.Value && Convert.ToBoolean(reader["doenca_anemia"]);
+                            checkBoxBronquite.Checked = reader["doenca_bronquite"] != DBNull.Value && Convert.ToBoolean(reader["doenca_bronquite"]);
+                            checkBoxCatapora.Checked = reader["doenca_catapora"] != DBNull.Value && Convert.ToBoolean(reader["doenca_catapora"]);
+                            checkBoxCovid.Checked = reader["doenca_covid"] != DBNull.Value && Convert.ToBoolean(reader["doenca_covid"]);
+                            checkBoxDoencaCardiaca.Checked = reader["doenca_cardiaca"] != DBNull.Value && Convert.ToBoolean(reader["doenca_cardiaca"]);
+                            checkBoxMeningite.Checked = reader["doenca_meningite"] != DBNull.Value && Convert.ToBoolean(reader["doenca_meningite"]);
+                            checkBoxPneumonia.Checked = reader["doenca_pneumonia"] != DBNull.Value && Convert.ToBoolean(reader["doenca_pneumonia"]);
+                            checkBoxConvulsao.Checked = reader["doenca_convulsao"] != DBNull.Value && Convert.ToBoolean(reader["doenca_convulsao"]);
+                            checkBoxDiabetes.Checked = reader["doenca_diabete"] != DBNull.Value && Convert.ToBoolean(reader["doenca_diabete"]);
+                            checkBoxRefluxo.Checked = reader["doenca_refluxo"] != DBNull.Value && Convert.ToBoolean(reader["doenca_refluxo"]);
+                            txtOutrasDoencas.Text = reader["outras_doencas"]?.ToString() ?? "";
+
+                            checkBoxConvenio.Checked = reader["possui_convenio"] != DBNull.Value && Convert.ToBoolean(reader["possui_convenio"]);
+                            txtConvenio.Text = reader["qual_convenio"]?.ToString() ?? "";
+
+                            checkBoxVisao.Checked = reader["problemas_visao"] != DBNull.Value && Convert.ToBoolean(reader["problemas_visao"]);
+
+                            checkBoxCarro.Checked = reader["transporte_carro"] != DBNull.Value && Convert.ToBoolean(reader["transporte_carro"]);
+                            checkBoxVanEscolar.Checked = reader["transporte_van"] != DBNull.Value && Convert.ToBoolean(reader["transporte_van"]);
+                            checkBoxPe.Checked = reader["transporte_a_pe"] != DBNull.Value && Convert.ToBoolean(reader["transporte_a_pe"]);
+                            checkBoxOutros.Checked = !string.IsNullOrWhiteSpace(reader["transporte_outros_desc"]?.ToString());
+
+                        }
+                    }
+                }
+            }
+        }
 
 
+        private void btnAdicionarResponsavelEditar_Click(object sender, EventArgs e)
+        {
+            ativarPanelResponsavel2();
+            btnAdicionarResponsavelEditar.Visible = false;
+            btnRemoverResponsavel2.Visible = true;
+        }
+
+        private void radioButtonAlugada_CheckedChanged(object sender, EventArgs e)
+        {
+            bool alugada = radioButtonAlugada.Checked;
+            txtCampoAluguel.Visible = alugada;
+            txtCampoAluguel.Enabled = alugada;
+            labelValorAlugue.Visible = alugada;
+        }
+
+        private void radioButtoMoradiaPropria_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCampoAluguel.Visible = false;
+            txtCampoAluguel.Enabled = false;
+            labelValorAlugue.Visible = false;
+        }
+
+        private void radioButtonCedida_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCampoAluguel.Visible = false;
+            txtCampoAluguel.Enabled = false;
+            labelValorAlugue.Visible = false;
+        }
+
+        private void btnRemoverResponsavel2_Click(object sender, EventArgs e)
+        {
+            txtNomeResponsavel2Cadastro.Text = "";
+            comboBoxTipoResponsavel2.SelectedIndex = -1;
+            txtDataNascimentoResponsavel2Cadastro.Text = "";
+            comboBoxEstadoCivilResponsavel2Cadastro.SelectedIndex = -1;
+            comboBoxEscolaridadeResponsavel2Cadastro.SelectedIndex = -1;
+            txtTelefoneResponsavel2Cadastro.Text = "";
+            txtEmailResponsavel2.Text = "";
+            txtNomeEmpresaResponsavel2Cadastro.Text = "";
+            txtProfissaoResponsavel2Cadastro.Text = "";
+            txtTelefoneTrabalhoResponsavel2Cadastro.Text = "";
+            txtHorarioResponsavel2Cadastro.Text = "";
+            txtSalarioResponsavel2Cadastro.Text = "";
+            checkBoxRendaExtraResponsavel2Cadastro.Checked = false;
+            txtRendaExtraResponsavel2Cadastro.Text = "";
+
+            ativarPanelResponsavel2();
+            btnAdicionarResponsavelEditar.Visible = true;
+            btnRemoverResponsavel2.Visible = false;
+
+        }
     }
 }
