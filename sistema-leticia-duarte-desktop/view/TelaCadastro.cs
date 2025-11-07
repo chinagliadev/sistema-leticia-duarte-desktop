@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using sistema_leticia_duarte_desktop.auxiliar;
 using sistema_leticia_duarte_desktop.classes;
 using System;
@@ -9,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -289,7 +291,6 @@ namespace sistema_leticia_duarte_desktop.view
             if (!ValidarCamposAluno()) return;
             if (!ValidarCamposResponsaveis()) return;
             if (!ValidarEstruturaFamiliar()) return;
-            if (!ValidarCamposPessoasAutorizadas()) return;
 
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
             using (MySqlTransaction transaction = conn.BeginTransaction())
@@ -298,7 +299,7 @@ namespace sistema_leticia_duarte_desktop.view
                 {
                     EnderecoAuxiliar enderecoAux = new EnderecoAuxiliar();
                     int enderecoId = enderecoAux.CadastrarEndereco(
-                        txtCepAlunoCadastro.Text,
+                        txtCepMaskCadastro.Text,
                         txtEnderecoAlunoCadastro.Text,
                         txtNumeroAlunoCadastro.Text,
                         txtBairroAlunoCadastro.Text,
@@ -370,6 +371,8 @@ namespace sistema_leticia_duarte_desktop.view
                         responsavel2Id = null;
                     }
 
+                    
+
                     EstruturaFamiliarAuxiliar estruturaAux = new EstruturaFamiliarAuxiliar();
                     int estruturaId = estruturaAux.CadastrarEstruturaFamiliar(
                         checkBoxPaisVivemJuntos.Checked,
@@ -402,7 +405,7 @@ namespace sistema_leticia_duarte_desktop.view
                         checkBoxCarro.Checked,
                         checkBoxVanEscolar.Checked,
                         checkBoxPe.Checked,
-                        checkBoxOutros.Text
+                        checkBoxOutros.Checked ? 1 : 0
                     );
 
                     PessoaAutorizadaAuxiliar pessoaAux = new PessoaAutorizadaAuxiliar();
@@ -492,157 +495,20 @@ namespace sistema_leticia_duarte_desktop.view
         }
 
 
-        private bool RgJaExisteNoBanco(string ra)
+        private bool RaJaExisteNoBanco(string ra)
         {
-            bool existe = false;
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())
             {
-                string sql = "SELECT rg FROM tb_alunos WHERE ra_aluno = @ra AND rg IS NOT NULL AND rg <> ''";
+                string sql = "SELECT 1 FROM tb_alunos WHERE ra_aluno = @ra LIMIT 1";
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ra", ra);
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                            existe = true;
-                    }
+
+                    var result = cmd.ExecuteScalar();
+                    return result != null; 
                 }
             }
-            return existe;
         }
-
-        private bool ValidarCamposPessoasAutorizadas()
-        {
-            StringBuilder erros = new StringBuilder();
-
-            // Função auxiliar para validar nome completo
-            bool NomeTemNomeESobrenome(string nome)
-            {
-                var palavras = nome.Trim().Split(' ');
-                return palavras.Length >= 2; // pelo menos duas palavras
-            }
-
-            // ----------------------
-            // Pessoa autorizada 1
-            // ----------------------
-            if (!string.IsNullOrWhiteSpace(txtNomePessoaAutorizada1.Text))
-            {
-                if (!NomeTemNomeESobrenome(txtNomePessoaAutorizada1.Text))
-                    erros.AppendLine("O nome da pessoa autorizada 1 deve conter nome e sobrenome.");
-            }
-
-            string cpf1 = txtCpfPessoaAutorizada1.Text.Replace(".", "").Replace("-", "").Trim();
-            if (!string.IsNullOrEmpty(cpf1))
-            {
-                if (!ValidarCpf(cpf1))
-                    erros.AppendLine("O CPF da pessoa autorizada 1 é inválido.");
-            }
-
-            string telefone1 = txtTelefonePessoaAutorizada1.Text.Replace("(", "")
-                                                               .Replace(")", "")
-                                                               .Replace("-", "")
-                                                               .Replace(" ", "")
-                                                               .Trim();
-            if (!string.IsNullOrEmpty(telefone1))
-            {
-                if (!ValidarTelefone(telefone1))
-                    erros.AppendLine("O telefone da pessoa autorizada 1 deve ter 11 dígitos.");
-            }
-
-            // ----------------------
-            // Pessoa autorizada 2
-            // ----------------------
-            if (!string.IsNullOrWhiteSpace(txtNomePessoaAutorizada2.Text))
-            {
-                if (!NomeTemNomeESobrenome(txtNomePessoaAutorizada2.Text))
-                    erros.AppendLine("O nome da pessoa autorizada 2 deve conter nome e sobrenome.");
-            }
-
-            string cpf2 = txtCpfPessoaAutorizada2.Text.Replace(".", "").Replace("-", "").Trim();
-            if (!string.IsNullOrEmpty(cpf2))
-            {
-                if (!ValidarCpf(cpf2))
-                    erros.AppendLine("O CPF da pessoa autorizada 2 é inválido.");
-            }
-
-            string telefone2 = txtTelefonePessoaAutorizada2.Text.Replace("(", "")
-                                                               .Replace(")", "")
-                                                               .Replace("-", "")
-                                                               .Replace(" ", "")
-                                                               .Trim();
-            if (!string.IsNullOrEmpty(telefone2))
-            {
-                if (!ValidarTelefone(telefone2))
-                    erros.AppendLine("O telefone da pessoa autorizada 2 deve ter 11 dígitos.");
-            }
-
-            // ----------------------
-            // Pessoa autorizada 3
-            // ----------------------
-            if (!string.IsNullOrWhiteSpace(txtNomePessoaAutorizada3.Text))
-            {
-                if (!NomeTemNomeESobrenome(txtNomePessoaAutorizada3.Text))
-                    erros.AppendLine("O nome da pessoa autorizada 3 deve conter nome e sobrenome.");
-            }
-
-            string cpf3 = txtCpfPessoaAutorizada3.Text.Replace(".", "").Replace("-", "").Trim();
-            if (!string.IsNullOrEmpty(cpf3))
-            {
-                if (!ValidarCpf(cpf3))
-                    erros.AppendLine("O CPF da pessoa autorizada 3 é inválido.");
-            }
-
-            string telefone3 = txtTelefonePessoaAutorizada3.Text.Replace("(", "")
-                                                               .Replace(")", "")
-                                                               .Replace("-", "")
-                                                               .Replace(" ", "")
-                                                               .Trim();
-            if (!string.IsNullOrEmpty(telefone3))
-            {
-                if (!ValidarTelefone(telefone3))
-                    erros.AppendLine("O telefone da pessoa autorizada 3 deve ter 11 dígitos.");
-            }
-
-            // ----------------------
-            // Pessoa autorizada 4
-            // ----------------------
-            if (!string.IsNullOrWhiteSpace(txtNomePessoaAutorizada4.Text))
-            {
-                if (!NomeTemNomeESobrenome(txtNomePessoaAutorizada4.Text))
-                    erros.AppendLine("O nome da pessoa autorizada 4 deve conter nome e sobrenome.");
-            }
-
-            string cpf4 = txtCpfPessoaAutorizada4.Text.Replace(".", "").Replace("-", "").Trim();
-            if (!string.IsNullOrEmpty(cpf4))
-            {
-                if (!ValidarCpf(cpf4))
-                    erros.AppendLine("O CPF da pessoa autorizada 4 é inválido.");
-            }
-
-            string telefone4 = txtTelefonePessoaAutorizada4.Text.Replace("(", "")
-                                                               .Replace(")", "")
-                                                               .Replace("-", "")
-                                                               .Replace(" ", "")
-                                                               .Trim();
-            if (!string.IsNullOrEmpty(telefone4))
-            {
-                if (!ValidarTelefone(telefone4))
-                    erros.AppendLine("O telefone da pessoa autorizada 4 deve ter 11 dígitos.");
-            }
-
- 
-            if (erros.Length > 0)
-            {
-                MessageBox.Show(erros.ToString(), "Campos inválidos - Pessoas Autorizadas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
-
-
-
 
         private bool ValidarCamposAluno()
         {
@@ -651,8 +517,32 @@ namespace sistema_leticia_duarte_desktop.view
             if (txtNomeAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtNomeAlunoCadastro.Text))
                 erros.AppendLine("O nome do aluno é obrigatório.");
 
-            if (txtRaAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtRaAlunoCadastro.Text))
-                erros.AppendLine("O RA do aluno é obrigatório.");
+
+            if (txtEnderecoAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtEnderecoAlunoCadastro.Text))
+                erros.AppendLine("O endereço do aluno é obrigatório.");
+
+            if (txtBairroAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtBairroAlunoCadastro.Text))
+                erros.AppendLine("O bairro do aluno é obrigatório.");
+            txtCepMaskCadastro.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            string cep = txtCepMaskCadastro.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(cep) || cep.Length < 8)
+            {
+                erros.AppendLine("O CEP do aluno é obrigatório.");
+            }
+
+            txtCepMaskCadastro.TextMaskFormat = MaskFormat.IncludeLiterals;
+            MessageBox.Show("CEP: " + txtCepMaskCadastro.Text);
+
+            if (txtCidadeAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtCidadeAlunoCadastro.Text))
+                erros.AppendLine("O cidade do aluno é obrigatório.");
+
+            if (txtQtdGotasCadastroAluno.Visible && string.IsNullOrWhiteSpace(txtQtdGotasCadastroAluno.Text))
+                    erros.AppendLine("O campo gotas é obrigatório.");
+
+            if (txtRemedioCadastroAluno.Visible && string.IsNullOrWhiteSpace(txtRemedioCadastroAluno.Text))
+                erros.AppendLine("O campo remedio é obrigatório.");
 
             if (txtCpfAlunoCadastro.Visible)
             {
@@ -664,10 +554,21 @@ namespace sistema_leticia_duarte_desktop.view
 
             if (txtRgAlunoCadastro.Visible && !string.IsNullOrWhiteSpace(txtRaAlunoCadastro.Text))
             {
-                if (RgJaExisteNoBanco(txtRaAlunoCadastro.Text))
+                if (RaJaExisteNoBanco(txtRaAlunoCadastro.Text))
                 {
-                    erros.AppendLine("O RA informado já possui um RG cadastrado no banco.");
+                    erros.AppendLine("O RA informado já possui um cadastrado no banco.");
                 }
+            }
+
+            string numeroEndereco = txtNumeroAlunoCadastro.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(numeroEndereco))
+            {
+                erros.AppendLine("O número do endereço é obrigatório.");
+            }
+            else if (!int.TryParse(numeroEndereco, out _))
+            {
+                erros.AppendLine("O número do endereço deve conter apenas números inteiros.");
             }
 
             if (txtDataNascimentoAlunoCadastro.Visible)
@@ -684,10 +585,6 @@ namespace sistema_leticia_duarte_desktop.view
                     erros.AppendLine("A data de nascimento informada é inválida.");
                 }
             }
-
-
-         
-
 
             if (comboBoxCorRacaAlunoCadastro.Visible && comboBoxCorRacaAlunoCadastro.SelectedItem == null)
                 erros.AppendLine("A cor/raça do aluno deve ser selecionada.");
@@ -738,19 +635,19 @@ namespace sistema_leticia_duarte_desktop.view
                 }
             }
 
-            if (txtSalarioResponsavelCadastro.Visible && txtSalarioResponsavelCadastro.Enabled)
+            if (!string.IsNullOrWhiteSpace(txtSalarioResponsavelCadastro.Text))
             {
-                if (string.IsNullOrWhiteSpace(txtSalarioResponsavelCadastro.Text))
-                    erros.AppendLine("O salário do responsável 1 é obrigatório.");
-                else if (!decimal.TryParse(txtSalarioResponsavelCadastro.Text, out decimal salario1))
+                if (!decimal.TryParse(txtSalarioResponsavelCadastro.Text, out decimal salario1))
                     erros.AppendLine("O salário do responsável 1 deve ser um valor numérico válido.");
             }
 
-            if (txtRendaExtraResponsavelCadastro.Visible && txtRendaExtraResponsavelCadastro.Enabled)
+            if (checkBoxRendaExtraResponsavelCadastro.Checked)
             {
-                if (!string.IsNullOrWhiteSpace(txtRendaExtraResponsavelCadastro.Text) &&
-                    !decimal.TryParse(txtRendaExtraResponsavelCadastro.Text, out decimal rendaExtra1))
-                    erros.AppendLine("A renda extra do responsável 1 deve ser um valor numérico válido.");
+                if (string.IsNullOrWhiteSpace(txtRendaExtraResponsavelCadastro.Text))
+                {
+                    if (!decimal.TryParse(txtRendaExtraResponsavelCadastro.Text, out decimal rendaExtra1))
+                        erros.AppendLine("A renda extra do responsável 1 deve ser um valor numérico válido.");
+                }
             }
 
             if (comboBoxEstadoCivilResponsavelCadastro.Visible && comboBoxEstadoCivilResponsavelCadastro.Enabled && comboBoxEstadoCivilResponsavelCadastro.SelectedItem == null)
@@ -779,9 +676,7 @@ namespace sistema_leticia_duarte_desktop.view
 
             if (txtSalarioResponsavel2Cadastro.Visible && txtSalarioResponsavel2Cadastro.Enabled)
             {
-                if (string.IsNullOrWhiteSpace(txtSalarioResponsavel2Cadastro.Text))
-                    erros.AppendLine("O salário do responsável 2 é obrigatório.");
-                else if (!decimal.TryParse(txtSalarioResponsavel2Cadastro.Text, out decimal salario2))
+                if (!decimal.TryParse(txtSalarioResponsavel2Cadastro.Text, out decimal salario2))
                     erros.AppendLine("O salário do responsável 2 deve ser um valor numérico válido.");
             }
 
@@ -797,7 +692,7 @@ namespace sistema_leticia_duarte_desktop.view
                 if (string.IsNullOrWhiteSpace(txtEmailResponsavel.Text))
                     erros.AppendLine("O email do responsável 1 é obrigatório.");
                 else if (!ValidarEmail(txtEmailResponsavel.Text))
-                    erros.AppendLine("O email do responsável 1 é inválido (deve conter nome e sobrenome, @ e .).");
+                    erros.AppendLine("O email do responsável 1 é inválido (@ e .).");
             }
 
             if (txtNomeResponsavel2Cadastro.Visible && txtNomeResponsavel2Cadastro.Enabled)
@@ -850,6 +745,15 @@ namespace sistema_leticia_duarte_desktop.view
                         erros.AppendLine("O email do responsável 2 é obrigatório.");
                     else if (!ValidarEmail(txtEmailResponsavel2.Text))
                         erros.AppendLine("O email do responsável 2 é inválido (deve conter nome e sobrenome, @ e .).");
+                }
+
+                if (checkBoxRendaExtraResponsavel2Cadastro.Checked)
+                {
+                    if (string.IsNullOrWhiteSpace(txtRendaExtraResponsavel2Cadastro.Text))
+                    {
+                        if (!decimal.TryParse(txtRendaExtraResponsavel2Cadastro.Text, out decimal rendaExtra1))
+                            erros.AppendLine("A renda extra do responsável 2 deve ser um valor numérico válido.");
+                    }
                 }
             }
 
@@ -934,50 +838,47 @@ namespace sistema_leticia_duarte_desktop.view
         {
             StringBuilder erros = new StringBuilder();
 
-            if (checkBoxPaisVivemJuntos.Visible && string.IsNullOrWhiteSpace(txtNumeroFilhosCadastro.Text))
-                erros.AppendLine("Informe o número de filhos.");
-
             if (checkBoxRecebeBolsaFamiliar.Visible && checkBoxRecebeBolsaFamiliar.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtValorBolsaFamilia.Text))
                     erros.AppendLine("Informe o valor da bolsa familiar.");
             }
 
-            // Alergia
             if (checkBoxPossuiAlergia.Visible && checkBoxPossuiAlergia.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtExpecifiqueCadastro.Text))
                     erros.AppendLine("Especifique a alergia do aluno.");
             }
 
-            // Convênio médico
             if (checkBoxConvenio.Visible && checkBoxConvenio.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtConvenio.Text))
                     erros.AppendLine("Informe o convênio médico.");
             }
 
-            // Necessidade especial
             if (checkBoxPortadorNecessidadeEspecial.Visible && checkBoxPortadorNecessidadeEspecial.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtNecessidadeCadastro.Text))
                     erros.AppendLine("Informe a necessidade especial do aluno.");
             }
 
-            // Cirurgia
             if (checkBoxJafezCirurgia.Visible && checkBoxJafezCirurgia.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtCirurgiaCadastro.Text))
                     erros.AppendLine("Informe a cirurgia realizada pelo aluno.");
             }
-
-            // Moradia alugada
             if (radioButtonAlugada.Visible && radioButtonAlugada.Checked)
             {
                 if (string.IsNullOrWhiteSpace(txtCampoAluguel.Text))
+                {
                     erros.AppendLine("Informe o valor do aluguel.");
+                }
+                else if (!decimal.TryParse(txtCampoAluguel.Text, out decimal valorAluguel))
+                {
+                    erros.AppendLine("O valor do aluguel deve ser um número válido.");
+                }
             }
-
+            
             if (erros.Length > 0)
             {
                 MessageBox.Show(erros.ToString(), "Campos obrigatórios - Estrutura Familiar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1012,6 +913,16 @@ namespace sistema_leticia_duarte_desktop.view
         private void txtSalarioResponsavelCadastro_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ValidarCamposResponsaveis();
+        }
+
+        private void checkBoxOutros_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(checkBoxOutros.Text);
         }
     }
 }

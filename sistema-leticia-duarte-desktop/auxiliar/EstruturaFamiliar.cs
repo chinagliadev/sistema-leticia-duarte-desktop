@@ -41,7 +41,7 @@ namespace sistema_leticia_duarte_desktop.auxiliar
             bool transporteCarro,
             bool transporteVan,
             bool transporteAPe,
-            string transporteOutrosDesc
+            int transporteOutrosDesc
         )
         {
             using (MySqlConnection conn = ConexaoAuxiliar.ObterConexao())

@@ -36,8 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.btnVerificarData = new System.Windows.Forms.Button();
+            this.txtCepMaskCadastro = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxCorRacaAlunoCadastro = new System.Windows.Forms.ComboBox();
             this.txtDataNascimentoAlunoCadastro = new System.Windows.Forms.MaskedTextBox();
             this.labelRemedioAlunoCadastro = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             this.txtRendaExtraResponsavelCadastro = new System.Windows.Forms.TextBox();
             this.checkBoxRendaExtraResponsavelCadastro = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtSalarioResponsavelCadastro = new System.Windows.Forms.TextBox();
             this.comboBoxEstadoCivilResponsavelCadastro = new System.Windows.Forms.ComboBox();
             this.txtDataNascimentoResponsavelCadastro = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxTipoResponsavel = new System.Windows.Forms.ComboBox();
@@ -220,7 +220,6 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtSalarioResponsavelCadastro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -299,8 +298,7 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.maskedTextBox1);
-            this.panel3.Controls.Add(this.btnVerificarData);
+            this.panel3.Controls.Add(this.txtCepMaskCadastro);
             this.panel3.Controls.Add(this.comboBoxCorRacaAlunoCadastro);
             this.panel3.Controls.Add(this.txtDataNascimentoAlunoCadastro);
             this.panel3.Controls.Add(this.labelRemedioAlunoCadastro);
@@ -338,24 +336,14 @@
             this.panel3.Size = new System.Drawing.Size(1322, 388);
             this.panel3.TabIndex = 5;
             // 
-            // maskedTextBox1
+            // txtCepMaskCadastro
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(539, 138);
-            this.maskedTextBox1.Mask = "000000-000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(234, 26);
-            this.maskedTextBox1.TabIndex = 49;
-            // 
-            // btnVerificarData
-            // 
-            this.btnVerificarData.Location = new System.Drawing.Point(522, 278);
-            this.btnVerificarData.Name = "btnVerificarData";
-            this.btnVerificarData.Size = new System.Drawing.Size(125, 34);
-            this.btnVerificarData.TabIndex = 48;
-            this.btnVerificarData.Text = "das";
-            this.btnVerificarData.UseVisualStyleBackColor = true;
-            this.btnVerificarData.Click += new System.EventHandler(this.btnVerificarData_Click);
+            this.txtCepMaskCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCepMaskCadastro.Location = new System.Drawing.Point(539, 138);
+            this.txtCepMaskCadastro.Mask = "00000-000";
+            this.txtCepMaskCadastro.Name = "txtCepMaskCadastro";
+            this.txtCepMaskCadastro.Size = new System.Drawing.Size(234, 26);
+            this.txtCepMaskCadastro.TabIndex = 49;
             // 
             // comboBoxCorRacaAlunoCadastro
             // 
@@ -418,6 +406,7 @@
             // 
             // txtRemedioCadastroAluno
             // 
+            this.txtRemedioCadastroAluno.AcceptsReturn = true;
             this.txtRemedioCadastroAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemedioCadastroAluno.Location = new System.Drawing.Point(1160, 286);
             this.txtRemedioCadastroAluno.Name = "txtRemedioCadastroAluno";
@@ -805,6 +794,15 @@
             this.label21.Size = new System.Drawing.Size(198, 20);
             this.label21.TabIndex = 52;
             this.label21.Text = "Salario do Responsavel";
+            // 
+            // txtSalarioResponsavelCadastro
+            // 
+            this.txtSalarioResponsavelCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalarioResponsavelCadastro.Location = new System.Drawing.Point(271, 338);
+            this.txtSalarioResponsavelCadastro.Name = "txtSalarioResponsavelCadastro";
+            this.txtSalarioResponsavelCadastro.Size = new System.Drawing.Size(251, 26);
+            this.txtSalarioResponsavelCadastro.TabIndex = 51;
+            this.txtSalarioResponsavelCadastro.TextChanged += new System.EventHandler(this.txtSalarioResponsavelCadastro_TextChanged);
             // 
             // comboBoxEstadoCivilResponsavelCadastro
             // 
@@ -1583,7 +1581,6 @@
             this.txtOutrasDoencas.Name = "txtOutrasDoencas";
             this.txtOutrasDoencas.Size = new System.Drawing.Size(288, 26);
             this.txtOutrasDoencas.TabIndex = 98;
-            this.txtOutrasDoencas.Visible = false;
             // 
             // labelOutrasDoencas
             // 
@@ -1743,6 +1740,7 @@
             this.checkBoxOutros.TabIndex = 85;
             this.checkBoxOutros.Text = "Outros";
             this.checkBoxOutros.UseVisualStyleBackColor = true;
+            this.checkBoxOutros.CheckedChanged += new System.EventHandler(this.checkBoxOutros_CheckedChanged);
             // 
             // checkBoxPe
             // 
@@ -2412,15 +2410,6 @@
             this.panel6.Size = new System.Drawing.Size(1322, 10);
             this.panel6.TabIndex = 49;
             // 
-            // txtSalarioResponsavelCadastro
-            // 
-            this.txtSalarioResponsavelCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalarioResponsavelCadastro.Location = new System.Drawing.Point(271, 338);
-            this.txtSalarioResponsavelCadastro.Name = "txtSalarioResponsavelCadastro";
-            this.txtSalarioResponsavelCadastro.Size = new System.Drawing.Size(251, 26);
-            this.txtSalarioResponsavelCadastro.TabIndex = 51;
-            this.txtSalarioResponsavelCadastro.TextChanged += new System.EventHandler(this.txtSalarioResponsavelCadastro_TextChanged);
-            // 
             // TelaCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2646,8 +2635,7 @@
         private System.Windows.Forms.CheckBox checkBoxVisao;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnVerificarData;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtCepMaskCadastro;
         private System.Windows.Forms.TextBox txtSalarioResponsavelCadastro;
     }
 }
