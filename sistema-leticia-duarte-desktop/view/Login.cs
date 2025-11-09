@@ -78,8 +78,9 @@ namespace sistema_leticia_duarte_desktop.view
                 TelaCadastro telaCadastro = new TelaCadastro(idFuncionario);
 
 
-                TelaListarAlunos telaListarAlunos = new TelaListarAlunos();
+                TelaListarAlunos telaListarAlunos = new TelaListarAlunos(idFuncionario);
                 telaListarAlunos.Show();
+                this.Hide();
             }
             else
             {

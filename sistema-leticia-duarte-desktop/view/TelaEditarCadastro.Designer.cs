@@ -212,6 +212,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelPrincipal.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -258,6 +259,7 @@
             // 
             this.panel11.AutoScroll = true;
             this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.button1);
             this.panel11.Controls.Add(this.label63);
             this.panel11.Controls.Add(this.label62);
             this.panel11.Controls.Add(this.label60);
@@ -744,9 +746,9 @@
             this.labelConvenio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelConvenio.Location = new System.Drawing.Point(1002, 155);
             this.labelConvenio.Name = "labelConvenio";
-            this.labelConvenio.Size = new System.Drawing.Size(51, 20);
+            this.labelConvenio.Size = new System.Drawing.Size(46, 20);
             this.labelConvenio.TabIndex = 101;
-            this.labelConvenio.Text = "Valor";
+            this.labelConvenio.Text = "Qual";
             this.labelConvenio.Visible = false;
             // 
             // txtConvenio
@@ -768,6 +770,7 @@
             this.checkBoxConvenio.TabIndex = 99;
             this.checkBoxConvenio.Text = "Possui Convenio";
             this.checkBoxConvenio.UseVisualStyleBackColor = true;
+            this.checkBoxConvenio.CheckedChanged += new System.EventHandler(this.checkBoxConvenio_CheckedChanged);
             // 
             // txtOutrasDoencas
             // 
@@ -1085,6 +1088,7 @@
             this.checkBoxRecebeBolsaFamiliar.TabIndex = 70;
             this.checkBoxRecebeBolsaFamiliar.Text = "Recebe Bolsa Familia";
             this.checkBoxRecebeBolsaFamiliar.UseVisualStyleBackColor = true;
+            this.checkBoxRecebeBolsaFamiliar.CheckedChanged += new System.EventHandler(this.checkBoxRecebeBolsaFamiliar_CheckedChanged);
             // 
             // checkBoxVacina
             // 
@@ -1167,6 +1171,7 @@
             this.checkBoxJafezCirurgia.TabIndex = 60;
             this.checkBoxJafezCirurgia.Text = "Já fez cirurgia";
             this.checkBoxJafezCirurgia.UseVisualStyleBackColor = true;
+            this.checkBoxJafezCirurgia.CheckedChanged += new System.EventHandler(this.checkBoxJafezCirurgia_CheckedChanged);
             // 
             // checkBoxPortadorNecessidadeEspecial
             // 
@@ -1178,6 +1183,7 @@
             this.checkBoxPortadorNecessidadeEspecial.TabIndex = 59;
             this.checkBoxPortadorNecessidadeEspecial.Text = "Portador de alguma necessidade especial";
             this.checkBoxPortadorNecessidadeEspecial.UseVisualStyleBackColor = true;
+            this.checkBoxPortadorNecessidadeEspecial.CheckedChanged += new System.EventHandler(this.checkBoxPortadorNecessidadeEspecial_CheckedChanged);
             // 
             // checkBoxPossuiAlergia
             // 
@@ -1189,6 +1195,7 @@
             this.checkBoxPossuiAlergia.TabIndex = 58;
             this.checkBoxPossuiAlergia.Text = "Possui alergia";
             this.checkBoxPossuiAlergia.UseVisualStyleBackColor = true;
+            this.checkBoxPossuiAlergia.CheckedChanged += new System.EventHandler(this.checkBoxPossuiAlergia_CheckedChanged);
             // 
             // label27
             // 
@@ -1278,6 +1285,7 @@
             this.panelResponsavel2Editar.Name = "panelResponsavel2Editar";
             this.panelResponsavel2Editar.Size = new System.Drawing.Size(1322, 466);
             this.panelResponsavel2Editar.TabIndex = 58;
+            this.panelResponsavel2Editar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelResponsavel2Editar_Paint);
             // 
             // panel9
             // 
@@ -1339,6 +1347,7 @@
             this.label2RendaExtra.Size = new System.Drawing.Size(109, 20);
             this.label2RendaExtra.TabIndex = 54;
             this.label2RendaExtra.Text = "Renda Extra";
+            this.label2RendaExtra.Visible = false;
             // 
             // txtRendaExtraResponsavel2Cadastro
             // 
@@ -1347,6 +1356,7 @@
             this.txtRendaExtraResponsavel2Cadastro.Name = "txtRendaExtraResponsavel2Cadastro";
             this.txtRendaExtraResponsavel2Cadastro.Size = new System.Drawing.Size(251, 26);
             this.txtRendaExtraResponsavel2Cadastro.TabIndex = 53;
+            this.txtRendaExtraResponsavel2Cadastro.Visible = false;
             // 
             // checkBoxRendaExtraResponsavel2Cadastro
             // 
@@ -1358,6 +1368,7 @@
             this.checkBoxRendaExtraResponsavel2Cadastro.TabIndex = 48;
             this.checkBoxRendaExtraResponsavel2Cadastro.Text = "Possui Renda Extra";
             this.checkBoxRendaExtraResponsavel2Cadastro.UseVisualStyleBackColor = true;
+            this.checkBoxRendaExtraResponsavel2Cadastro.CheckedChanged += new System.EventHandler(this.checkBoxRendaExtraResponsavel2Cadastro_CheckedChanged);
             // 
             // label31
             // 
@@ -2087,6 +2098,7 @@
             this.checkBoxRendaExtraResponsavelCadastro.TabIndex = 48;
             this.checkBoxRendaExtraResponsavelCadastro.Text = "Possui Renda Extra";
             this.checkBoxRendaExtraResponsavelCadastro.UseVisualStyleBackColor = true;
+            this.checkBoxRendaExtraResponsavelCadastro.CheckedChanged += new System.EventHandler(this.checkBoxRendaExtraResponsavelCadastro_CheckedChanged);
             // 
             // label21
             // 
@@ -2320,6 +2332,18 @@
             this.label30.Tag = "";
             this.label30.Text = "Tipo do Responsavel";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(27, 403);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 40);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Voltar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TelaEditarCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2328,6 +2352,7 @@
             this.Controls.Add(this.panelPrincipal);
             this.Name = "TelaEditarCadastro";
             this.Text = "TelaEditarCadastro";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaEditarCadastro_Load);
             this.panelPrincipal.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -2530,5 +2555,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button1;
     }
 }

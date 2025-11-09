@@ -24,8 +24,6 @@ namespace sistema_leticia_duarte_desktop.view
         {
             InitializeComponent();
             funcionarioLogadoId = idFuncionario;
-            MessageBox.Show(idFuncionario.ToString());
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -150,6 +148,19 @@ namespace sistema_leticia_duarte_desktop.view
             labelValorBolsaFamilia.Visible = true;
         }
 
+        private void ativarConvenioMedico()
+        {
+            if (!checkBoxConvenio.Checked)
+            {
+                txtConvenio.Visible = false;
+                labelConvenio.Visible = false;
+                return;
+            }
+
+            txtConvenio.Visible = true;
+            labelConvenio.Visible = true;
+        }
+
         private void ativarCampoAlugue()
         {
             if (!radioButtonAlugada.Checked)
@@ -164,18 +175,6 @@ namespace sistema_leticia_duarte_desktop.view
             labelValorAlugue.Visible = true;
         }
 
-        private void ativarConvenioMedico()
-        {
-            if (!checkBoxConvenio.Checked)
-            {
-                txtConvenio.Visible = false;
-                labelConvenio.Visible = false;
-                return;
-            }
-
-            txtConvenio.Visible = true;
-            labelConvenio.Visible = true;
-        }
 
         private void checkBoxFebreCadastroAluno_CheckedChanged(object sender, EventArgs e)
         {
@@ -497,6 +496,9 @@ namespace sistema_leticia_duarte_desktop.view
                     );
                     transaction.Commit();
                     MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TelaListarAlunos listarAlunos = new TelaListarAlunos(funcionarioLogadoId);
+                    listarAlunos.Show();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -964,9 +966,6 @@ namespace sistema_leticia_duarte_desktop.view
         {
             string dataNascimentoFormulario = txtDataNascimentoAlunoCadastro.Text;
             string dataNascimento = FormatarData(txtDataNascimentoAlunoCadastro.Text);
-            MessageBox.Show(dataNascimento);
-            MessageBox.Show(dataNascimentoFormulario);
-
         }
 
       
@@ -989,6 +988,13 @@ namespace sistema_leticia_duarte_desktop.view
         private void panel15_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            TelaListarAlunos listar = new TelaListarAlunos(funcionarioLogadoId);
+            listar.Show();
+            this.Close();
         }
     }
 }

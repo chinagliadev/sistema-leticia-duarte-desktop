@@ -220,6 +220,7 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -1056,6 +1057,7 @@
             // 
             this.panel11.AutoScroll = true;
             this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.button1);
             this.panel11.Controls.Add(this.label63);
             this.panel11.Controls.Add(this.label62);
             this.panel11.Controls.Add(this.label61);
@@ -2411,6 +2413,18 @@
             this.panel6.Size = new System.Drawing.Size(1322, 10);
             this.panel6.TabIndex = 49;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(26, 403);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 40);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Voltar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // TelaCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2638,5 +2652,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox txtCepMaskCadastro;
         private System.Windows.Forms.TextBox txtSalarioResponsavelCadastro;
+        private System.Windows.Forms.Button button1;
     }
 }

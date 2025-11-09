@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using sistema_leticia_duarte_desktop.auxiliar;
+using sistema_leticia_duarte_desktop.classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +13,11 @@ using System.Windows.Forms;
 
 namespace sistema_leticia_duarte_desktop.view
 {
-    public partial class TelaEditarCadastro: Form
+    public partial class TelaEditarCadastro : Form
     {
         private int _alunoId;
-
-        public TelaEditarCadastro(int alunoId)
+        private int funcionarioLogadoId;
+        public TelaEditarCadastro(int alunoId, int idFuncionario)
         {
             InitializeComponent();
             _alunoId = alunoId;
@@ -24,6 +25,7 @@ namespace sistema_leticia_duarte_desktop.view
             preencherCamposResponsaveis();
             preencherCamposEstruturaFamiliar();
             preencherCamposPessoasAutorizadas();
+            funcionarioLogadoId = idFuncionario;
         }
 
         private void TelaEditarCadastro_Load(object sender, EventArgs e)
@@ -472,7 +474,8 @@ namespace sistema_leticia_duarte_desktop.view
             {
                 panelResponsavel2Editar.Enabled = true;
                 btnAdicionarResponsavelEditar.Visible = true;
-                
+                btnRemoverResponsavel2.Enabled = true;
+
             }
             else
             {
@@ -600,7 +603,6 @@ namespace sistema_leticia_duarte_desktop.view
                         if (reader.Read())
                         {
                             txtNomeResponsavelCadastro.Text = reader["Resp1Nome"]?.ToString() ?? "";
-
                             comboBoxTipoResponsavel.Text = reader["Resp1Tipo"]?.ToString() ?? "";
                             txtDataNascimentoResponsavelCadastro.Text = reader["Resp1DataNasc"] != DBNull.Value
                                 ? Convert.ToDateTime(reader["Resp1DataNasc"]).ToString("dd/MM/yyyy")
@@ -623,23 +625,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 : "";
 
                             txtNomeResponsavel2Cadastro.Text = reader["Resp2Nome"]?.ToString() ?? "";
-
-                            if (!string.IsNullOrWhiteSpace(txtNomeResponsavel2Cadastro.Text))
-                            {
-                                panelResponsavel2Editar.Enabled = true;
-                                panelResponsavel2Editar.Visible = true;
-
-                                btnRemoverResponsavel2.Enabled = true;
-                            }
-                            else
-                            {
-                                panelResponsavel2Editar.Enabled = false;
-                                panelResponsavel2Editar.Visible = false;
-
-                                btnRemoverResponsavel2.Enabled = false;
-                            }
-
-
                             comboBoxTipoResponsavel2.Text = reader["Resp2Tipo"]?.ToString() ?? "";
                             txtDataNascimentoResponsavel2Cadastro.Text = reader["Resp2DataNasc"] != DBNull.Value
                                 ? Convert.ToDateTime(reader["Resp2DataNasc"]).ToString("dd/MM/yyyy")
@@ -660,11 +645,45 @@ namespace sistema_leticia_duarte_desktop.view
                             txtRendaExtraResponsavel2Cadastro.Text = reader["Resp2ValorRendaExtra"] != DBNull.Value
                                 ? reader["Resp2ValorRendaExtra"].ToString()
                                 : "";
+
+                            panelResponsavel2Editar.Visible = true;
+                            panelResponsavel2Editar.Enabled = false;
+                           
+
+
+                            if (string.IsNullOrWhiteSpace(txtNomeResponsavel2Cadastro.Text))
+                            {
+                                LimparCamposResponsavel2();
+                                btnRemoverResponsavel2.Enabled = false;
+                            }
+                            else
+                            {
+                                btnRemoverResponsavel2.Enabled = true;
+                            }
                         }
                     }
                 }
             }
         }
+
+        private void LimparCamposResponsavel2()
+        {
+            txtNomeResponsavel2Cadastro.Text = "";
+            comboBoxTipoResponsavel2.SelectedIndex = -1;
+            txtDataNascimentoResponsavel2Cadastro.Text = "";
+            comboBoxEstadoCivilResponsavel2Cadastro.SelectedIndex = -1;
+            comboBoxEscolaridadeResponsavel2Cadastro.SelectedIndex = -1;
+            txtTelefoneResponsavel2Cadastro.Text = "";
+            txtEmailResponsavel2.Text = "";
+            txtNomeEmpresaResponsavel2Cadastro.Text = "";
+            txtProfissaoResponsavel2Cadastro.Text = "";
+            txtTelefoneTrabalhoResponsavel2Cadastro.Text = "";
+            txtHorarioResponsavel2Cadastro.Text = "";
+            txtSalarioResponsavel2Cadastro.Text = "";
+            checkBoxRendaExtraResponsavel2Cadastro.Checked = false;
+            txtRendaExtraResponsavel2Cadastro.Text = "";
+        }
+
 
         private void preencherCamposEstruturaFamiliar()
         {
@@ -718,15 +737,20 @@ namespace sistema_leticia_duarte_desktop.view
                             radioButtonAlugada.Checked = tipoMoradia == "alugada";
                             radioButtonCedida.Checked = tipoMoradia == "cedida";
 
-                            txtCampoAluguel.Text = reader["valor_aluguel"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["valor_aluguel"]).ToString("F2")
-                                : "";
+                            if (radioButtonAlugada.Checked)
+                            {
+                                txtCampoAluguel.Text = reader["valor_aluguel"] != DBNull.Value
+                                    ? Convert.ToDecimal(reader["valor_aluguel"]).ToString("F2")
+                                    : "";
 
-                            txtCampoAluguel.Visible = tipoMoradia == "alugada";
-                            txtCampoAluguel.Enabled = tipoMoradia == "alugada";
-                            labelValorAlugue.Visible = tipoMoradia == "alugada";
+                                MessageBox.Show(txtCampoAluguel.Text);
 
-
+                                txtCampoAluguel.Visible = true;
+                                labelValorAlugue.Visible = true;
+                                txtCampoAluguel.Visible = tipoMoradia == "alugada";
+                                txtCampoAluguel.Enabled = tipoMoradia == "alugada";
+                                labelValorAlugue.Visible = tipoMoradia == "alugada";
+                            }
 
                             checkBoxAnemia.Checked = reader["doenca_anemia"] != DBNull.Value && Convert.ToBoolean(reader["doenca_anemia"]);
                             checkBoxBronquite.Checked = reader["doenca_bronquite"] != DBNull.Value && Convert.ToBoolean(reader["doenca_bronquite"]);
@@ -792,7 +816,6 @@ namespace sistema_leticia_duarte_desktop.view
                                     txtCpfPessoaAutorizada1.Text = reader["cpf"]?.ToString() ?? "";
                                     txtTelefonePessoaAutorizada1.Text = reader["celular"]?.ToString() ?? "";
                                     comboBoxParentescoAutorizada1.Text = reader["parentesco"]?.ToString() ?? "";
-                                    MessageBox.Show(comboBoxParentescoAutorizada1.Text);
                                     break;
 
                                 case 2:
@@ -893,7 +916,6 @@ namespace sistema_leticia_duarte_desktop.view
 
                     try
                     {
-                        // ===== 1) Buscar todos os IDs relacionados a partir do alunoId =====
                         int enderecoId = 0;
                         int estruturaId = 0;
                         int responsavel1Id = 0;
@@ -960,7 +982,6 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 2) Atualizar tb_alunos =====
                         string sqlAluno = @"
                     UPDATE tb_alunos
                     SET nome = @nome,
@@ -997,10 +1018,8 @@ namespace sistema_leticia_duarte_desktop.view
                             cmdAluno.ExecuteNonQuery();
                         }
 
-                        // ===== 3) Atualizar / Inserir endereco =====
                         if (enderecoId == 0)
                         {
-                            // inserir novo endereco e atualizar tb_alunos.endereco_id
                             string sqlInsertEnd = @"
                         INSERT INTO endereco (cep, endereco, numero, bairro, cidade, complemento)
                         VALUES (@cep, @endereco, @numero, @bairro, @cidade, @complemento);";
@@ -1019,7 +1038,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 enderecoId = (int)novoIdEnd;
                             }
 
-                            // atualizar tb_alunos.endereco_id
                             string sqlAtualizaAlunoEndereco = "UPDATE tb_alunos SET endereco_id = @enderecoId WHERE id = @alunoId;";
                             using (MySqlCommand cmdUpd = new MySqlCommand(sqlAtualizaAlunoEndereco, conn, transacao))
                             {
@@ -1030,7 +1048,6 @@ namespace sistema_leticia_duarte_desktop.view
                         }
                         else
                         {
-                            // atualizar endereco existente
                             string sqlEndereco = @"
                         UPDATE endereco
                         SET cep = @cep,
@@ -1054,7 +1071,6 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 4) Atualizar / Inserir estrutura familiar =====
                         if (estruturaId == 0)
                         {
                             string sqlInsEstrutura = @"
@@ -1091,7 +1107,7 @@ namespace sistema_leticia_duarte_desktop.view
                                 cmdInsEstr.Parameters.AddWithValue("@desc_cirurgia", string.IsNullOrWhiteSpace(txtCirurgiaCadastro.Text) ? (object)DBNull.Value : txtCirurgiaCadastro.Text);
                                 cmdInsEstr.Parameters.AddWithValue("@vacina", checkBoxVacina.Checked ? 1 : 0);
                                 cmdInsEstr.Parameters.AddWithValue("@moradia", string.IsNullOrWhiteSpace(txtCampoAluguel.Text) ? (object)DBNull.Value : (radioButtonAlugada.Checked ? "Alugada" : radioButtoMoradiaPropria.Checked ? "Propria" : radioButtonCedida.Checked ? "Cedida" : (object)DBNull.Value));
-                                // Observação: usei txtCampoAluguel como campo para aluguel e radio buttons para tipo de moradia. Ajuste se quiser outro comportamento.
+
                                 cmdInsEstr.Parameters.AddWithValue("@valor_aluguel", string.IsNullOrWhiteSpace(txtCampoAluguel.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtCampoAluguel.Text));
                                 cmdInsEstr.Parameters.AddWithValue("@anemia", checkBoxAnemia.Checked ? 1 : 0);
                                 cmdInsEstr.Parameters.AddWithValue("@bronquite", checkBoxBronquite.Checked ? 1 : 0);
@@ -1113,7 +1129,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 estruturaId = (int)cmdInsEstr.LastInsertedId;
                             }
 
-                            // atualizar tb_matricula.estrutura_familiar_id
                             if (matriculaId > 0)
                             {
                                 string sqlUpdMatEstr = "UPDATE tb_matricula SET estrutura_familiar_id = @estruturaId WHERE id_matricula = @matriculaId;";
@@ -1127,7 +1142,6 @@ namespace sistema_leticia_duarte_desktop.view
                         }
                         else
                         {
-                            // atualizar estrutura existente
                             string sqlEstrAtual = @"
                         UPDATE tb_estrutura_familiar
                         SET pais_vivem_juntos = @pais,
@@ -1179,7 +1193,7 @@ namespace sistema_leticia_duarte_desktop.view
                                 cmdEstrAtual.Parameters.AddWithValue("@cirurgia", checkBoxJafezCirurgia.Checked ? 1 : 0);
                                 cmdEstrAtual.Parameters.AddWithValue("@desc_cirurgia", string.IsNullOrWhiteSpace(txtCirurgiaCadastro.Text) ? (object)DBNull.Value : txtCirurgiaCadastro.Text);
                                 cmdEstrAtual.Parameters.AddWithValue("@vacina", checkBoxVacina.Checked ? 1 : 0);
-                                cmdEstrAtual.Parameters.AddWithValue("@moradia", radioButtonAlugada.Checked ? "Alugada" : radioButtoMoradiaPropria.Checked ? "Propria" : radioButtonCedida.Checked ? "Cedida" : (object)DBNull.Value);
+                                cmdEstrAtual.Parameters.AddWithValue("@moradia", radioButtonAlugada.Checked ? "alugada" : radioButtoMoradiaPropria.Checked ? "propria" : radioButtonCedida.Checked ? "cedida" : (object)DBNull.Value);
                                 cmdEstrAtual.Parameters.AddWithValue("@valor_aluguel", string.IsNullOrWhiteSpace(txtCampoAluguel.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtCampoAluguel.Text));
                                 cmdEstrAtual.Parameters.AddWithValue("@anemia", checkBoxAnemia.Checked ? 1 : 0);
                                 cmdEstrAtual.Parameters.AddWithValue("@bronquite", checkBoxBronquite.Checked ? 1 : 0);
@@ -1202,8 +1216,6 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 5) Atualizar / Inserir responsáveis (1 e 2) =====
-                        // RESPONSAVEL 1 (campos sem sufixo "2")
                         if (responsavel1Id == 0)
                         {
                             string sqlInsResp = @"
@@ -1242,7 +1254,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 responsavel1Id = (int)cmdInsResp.LastInsertedId;
                             }
 
-                            // atualizar tb_matricula.responsavel_1_id
                             if (matriculaId > 0)
                             {
                                 string sqlUpdMatResp1 = "UPDATE tb_matricula SET responsavel_1_id = @resp1 WHERE id_matricula = @matriculaId;";
@@ -1289,7 +1300,6 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // RESPONSAVEL 2 (campos com sufixo "2")
                         if (responsavel2Id == 0)
                         {
                             string sqlInsResp2 = @"
@@ -1328,7 +1338,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 responsavel2Id = (int)cmdInsResp2.LastInsertedId;
                             }
 
-                            // atualizar tb_matricula.responsavel_2_id
                             if (matriculaId > 0)
                             {
                                 string sqlUpdMatResp2 = "UPDATE tb_matricula SET responsavel_2_id = @resp2 WHERE id_matricula = @matriculaId;";
@@ -1375,18 +1384,13 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 6) Pessoas autorizadas (1 a 4) - inserir ou atualizar e manter join table =====
-                        // Helper local para inserir/atualizar pessoa autorizada
                         Func<int, string, string, string, MySqlCommand, int> upsertPessoa = (existingId, nome, cpf, celular, cmdTemplate) =>
                         {
-                            // Note: this lambda will not be executed by DB; it's a placeholder; we'll actually implement inline for clarity below.
                             return 0;
                         };
 
-                        // ------------- Pessoa autorizada 1 -------------
                         if (string.IsNullOrWhiteSpace(txtNomePessoaAutorizada1.Text) && pessoaAut1Id == 0)
                         {
-                            // nada a fazer
                         }
                         else if (pessoaAut1Id == 0)
                         {
@@ -1403,7 +1407,6 @@ namespace sistema_leticia_duarte_desktop.view
                                 pessoaAut1Id = (int)cmd.LastInsertedId;
                             }
 
-                            // Atualiza tb_matricula.pessoa_autorizada_1_id
                             if (matriculaId > 0)
                             {
                                 string updMat = "UPDATE tb_matricula SET pessoa_autorizada_1_id = @id WHERE id_matricula = @matricula;";
@@ -1432,10 +1435,8 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ------------- Pessoa autorizada 2 -------------
                         if (string.IsNullOrWhiteSpace(txtNomePessoaAutorizada2.Text) && pessoaAut2Id == 0)
                         {
-                            // nada
                         }
                         else if (pessoaAut2Id == 0)
                         {
@@ -1480,10 +1481,8 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ------------- Pessoa autorizada 3 -------------
                         if (string.IsNullOrWhiteSpace(txtNomePessoaAutorizada3.Text) && pessoaAut3Id == 0)
                         {
-                            // nada
                         }
                         else if (pessoaAut3Id == 0)
                         {
@@ -1528,10 +1527,10 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ------------- Pessoa autorizada 4 -------------
+
                         if (string.IsNullOrWhiteSpace(txtNomePessoaAutorizada4.Text) && pessoaAut4Id == 0)
                         {
-                            // nada
+
                         }
                         else if (pessoaAut4Id == 0)
                         {
@@ -1576,7 +1575,7 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 7) Manter tb_matricula_pessoas_autorizadas: remover antigos e inserir atuais =====
+
                         if (matriculaId > 0)
                         {
                             using (MySqlCommand cmdDel = new MySqlCommand("DELETE FROM tb_matricula_pessoas_autorizadas WHERE matricula_id = @matricula;", conn, transacao))
@@ -1585,7 +1584,7 @@ namespace sistema_leticia_duarte_desktop.view
                                 cmdDel.ExecuteNonQuery();
                             }
 
-                            // Inserir cada pessoa autorizada não nula
+
                             Action<int> insertRel = (pessoaId) =>
                             {
                                 if (pessoaId > 0)
@@ -1606,8 +1605,7 @@ namespace sistema_leticia_duarte_desktop.view
                             insertRel(pessoaAut4Id);
                         }
 
-                        // ===== 8) Atualizar tb_matricula (responsáveis/pessoas/autorizadas já atualizados acima quando inseridos) =====
-                        // Caso seja necessário garantir colunas, atualize explicitamente
+
                         if (matriculaId > 0)
                         {
                             string sqlUpdMat = @"
@@ -1633,13 +1631,14 @@ namespace sistema_leticia_duarte_desktop.view
                             }
                         }
 
-                        // ===== 9) Commit e mensagem de sucesso =====
                         transacao.Commit();
                         MessageBox.Show("Aluno, endereço, estrutura, responsáveis e pessoas autorizadas atualizados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TelaListarAlunos listarAlunos = new TelaListarAlunos(funcionarioLogadoId);
+                        listarAlunos.Show();
                     }
                     catch (Exception exTransacao)
                     {
-                        try { transacao.Rollback(); } catch { /* ignorar */ }
+                        try { transacao.Rollback(); } catch { }
                         MessageBox.Show("Erro ao atualizar: " + exTransacao.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -1671,6 +1670,147 @@ namespace sistema_leticia_duarte_desktop.view
         private void checkBoxFebreCadastroAluno_CheckedChanged(object sender, EventArgs e)
         {
             ativarCampoMedicacao();
+        }
+
+        private void ativarCampoRendaExtra2()
+        {
+            if (!checkBoxRendaExtraResponsavel2Cadastro.Checked)
+            {
+                txtRendaExtraResponsavel2Cadastro.Visible = false;
+                label2RendaExtra.Visible = false;
+                txtRendaExtraResponsavelCadastro.Clear();
+                return;
+            }
+
+            txtRendaExtraResponsavel2Cadastro.Visible = true;
+            label2RendaExtra.Visible = true;
+
+        }
+
+        private void checkBoxRendaExtraResponsavel2Cadastro_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoRendaExtra2();
+        }
+
+        private void ativarCampoRendaExtra()
+        {
+            if (!checkBoxRendaExtraResponsavelCadastro.Checked)
+            {
+                txtRendaExtraResponsavelCadastro.Visible = false;
+                labelRendaExtra.Visible = false;
+                txtRendaExtraResponsavelCadastro.Clear();
+                return;
+            }
+
+            txtRendaExtraResponsavelCadastro.Visible = true;
+            labelRendaExtra.Visible = true;
+
+        }
+
+        private void checkBoxRendaExtraResponsavelCadastro_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoRendaExtra();
+
+        }
+
+        private void ativarCampoAlergia()
+        {
+            if (!checkBoxPossuiAlergia.Checked)
+            {
+                txtExpecifiqueCadastro.Visible = false;
+                labelEspecifique.Visible = false;
+                return;
+            }
+            txtExpecifiqueCadastro.Visible = true;
+            labelEspecifique.Visible = true;
+        }
+
+        private void ativarCampoNecessidadeEspecial()
+        {
+            if (!checkBoxPortadorNecessidadeEspecial.Checked)
+            {
+                txtNecessidadeCadastro.Visible = false;
+                labelQualNecessidade.Visible = false;
+                return;
+            }
+
+            txtNecessidadeCadastro.Visible = true;
+            labelQualNecessidade.Visible = true;
+        }
+
+        public void ativarCampoCirurgia()
+        {
+            if (!checkBoxJafezCirurgia.Checked)
+            {
+                txtCirurgiaCadastro.Visible = false;
+                labelQualCirurgia.Visible = false;
+                return;
+            }
+            txtCirurgiaCadastro.Visible = true;
+            labelQualCirurgia.Visible = true;
+        }
+
+        private void ativarCampoBolsaFamiliar()
+        {
+            if (!checkBoxRecebeBolsaFamiliar.Checked)
+            {
+                txtValorBolsaFamilia.Visible = false;
+                labelValorBolsaFamilia.Visible = false;
+                return;
+            }
+
+            txtValorBolsaFamilia.Visible = true;
+            labelValorBolsaFamilia.Visible = true;
+        }
+
+        private void ativarConvenioMedico()
+        {
+            if (!checkBoxConvenio.Checked)
+            {
+                txtConvenio.Visible = false;
+                labelConvenio.Visible = false;
+                return;
+            }
+
+            txtConvenio.Visible = true;
+            labelConvenio.Visible = true;
+        }
+
+        private void checkBoxPossuiAlergia_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoAlergia();
+        }
+
+        private void checkBoxPortadorNecessidadeEspecial_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoNecessidadeEspecial();
+        }
+
+        private void checkBoxJafezCirurgia_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoCirurgia();
+        }
+
+        private void checkBoxRecebeBolsaFamiliar_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarCampoBolsaFamiliar();
+        }
+
+        private void checkBoxConvenio_CheckedChanged(object sender, EventArgs e)
+        {
+            ativarConvenioMedico();
+        }
+
+        private void panelResponsavel2Editar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaListarAlunos listar = new TelaListarAlunos(funcionarioLogadoId);
+            listar.Show();
+            this.Close();
         }
     }
 }
