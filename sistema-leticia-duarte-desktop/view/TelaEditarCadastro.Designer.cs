@@ -34,7 +34,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -60,7 +59,7 @@
             this.txtCpfPessoaAutorizada1 = new System.Windows.Forms.MaskedTextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.btnSalvarAluno = new System.Windows.Forms.Button();
+            this.btnAtualizarAluno = new System.Windows.Forms.Button();
             this.txtTelefonePessoaAutorizada1 = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxParentescoAutorizada1 = new System.Windows.Forms.ComboBox();
             this.label50 = new System.Windows.Forms.Label();
@@ -261,7 +260,6 @@
             this.panel11.BackColor = System.Drawing.Color.White;
             this.panel11.Controls.Add(this.label63);
             this.panel11.Controls.Add(this.label62);
-            this.panel11.Controls.Add(this.label61);
             this.panel11.Controls.Add(this.label60);
             this.panel11.Controls.Add(this.label57);
             this.panel11.Controls.Add(this.label56);
@@ -287,7 +285,7 @@
             this.panel11.Controls.Add(this.txtCpfPessoaAutorizada1);
             this.panel11.Controls.Add(this.label47);
             this.panel11.Controls.Add(this.label46);
-            this.panel11.Controls.Add(this.btnSalvarAluno);
+            this.panel11.Controls.Add(this.btnAtualizarAluno);
             this.panel11.Controls.Add(this.txtTelefonePessoaAutorizada1);
             this.panel11.Controls.Add(this.comboBoxParentescoAutorizada1);
             this.panel11.Controls.Add(this.label50);
@@ -321,17 +319,6 @@
             this.label62.TabIndex = 82;
             this.label62.Tag = "";
             this.label62.Text = "Parentesco";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(611, 223);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(100, 20);
-            this.label61.TabIndex = 82;
-            this.label61.Tag = "";
-            this.label61.Text = "Parentesco";
             // 
             // label60
             // 
@@ -380,13 +367,15 @@
             this.comboBoxParentescoAutorizada4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxParentescoAutorizada4.FormattingEnabled = true;
             this.comboBoxParentescoAutorizada4.Items.AddRange(new object[] {
-            "branca",
-            "preta",
-            "parda",
-            "amarela",
-            "indigena",
-            "não declarada",
-            "outra"});
+            "Pai",
+            "Mãe",
+            "Avô",
+            "Avó",
+            "Irmão",
+            "Irmã",
+            "Tio",
+            "Tia",
+            "Outro"});
             this.comboBoxParentescoAutorizada4.Location = new System.Drawing.Point(1056, 349);
             this.comboBoxParentescoAutorizada4.Name = "comboBoxParentescoAutorizada4";
             this.comboBoxParentescoAutorizada4.Size = new System.Drawing.Size(236, 28);
@@ -398,13 +387,15 @@
             this.comboBoxParentescoAutorizada2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxParentescoAutorizada2.FormattingEnabled = true;
             this.comboBoxParentescoAutorizada2.Items.AddRange(new object[] {
-            "branca",
-            "preta",
-            "parda",
-            "amarela",
-            "indigena",
-            "não declarada",
-            "outra"});
+            "Pai",
+            "Mãe",
+            "Avô",
+            "Avó",
+            "Irmão",
+            "Irmã",
+            "Tio",
+            "Tia",
+            "Outro"});
             this.comboBoxParentescoAutorizada2.Location = new System.Drawing.Point(1056, 186);
             this.comboBoxParentescoAutorizada2.Name = "comboBoxParentescoAutorizada2";
             this.comboBoxParentescoAutorizada2.Size = new System.Drawing.Size(236, 28);
@@ -416,13 +407,15 @@
             this.comboBoxParentescoAutorizada3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxParentescoAutorizada3.FormattingEnabled = true;
             this.comboBoxParentescoAutorizada3.Items.AddRange(new object[] {
-            "branca",
-            "preta",
-            "parda",
-            "amarela",
-            "indigena",
-            "não declarada",
-            "outra"});
+            "Pai",
+            "Mãe",
+            "Avô",
+            "Avó",
+            "Irmão",
+            "Irmã",
+            "Tio",
+            "Tia",
+            "Outro"});
             this.comboBoxParentescoAutorizada3.Location = new System.Drawing.Point(1056, 268);
             this.comboBoxParentescoAutorizada3.Name = "comboBoxParentescoAutorizada3";
             this.comboBoxParentescoAutorizada3.Size = new System.Drawing.Size(236, 28);
@@ -596,16 +589,17 @@
             this.label46.Tag = "";
             this.label46.Text = "Pessoa autorizada a buscar meu filho(a)";
             // 
-            // btnSalvarAluno
+            // btnAtualizarAluno
             // 
-            this.btnSalvarAluno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(133)))), ((int)(((byte)(208)))));
-            this.btnSalvarAluno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalvarAluno.Location = new System.Drawing.Point(1056, 403);
-            this.btnSalvarAluno.Name = "btnSalvarAluno";
-            this.btnSalvarAluno.Size = new System.Drawing.Size(238, 40);
-            this.btnSalvarAluno.TabIndex = 56;
-            this.btnSalvarAluno.Text = "Salvar Cadastro";
-            this.btnSalvarAluno.UseVisualStyleBackColor = false;
+            this.btnAtualizarAluno.BackColor = System.Drawing.Color.Yellow;
+            this.btnAtualizarAluno.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAtualizarAluno.Location = new System.Drawing.Point(1056, 403);
+            this.btnAtualizarAluno.Name = "btnAtualizarAluno";
+            this.btnAtualizarAluno.Size = new System.Drawing.Size(238, 40);
+            this.btnAtualizarAluno.TabIndex = 56;
+            this.btnAtualizarAluno.Text = "Editar Aluno";
+            this.btnAtualizarAluno.UseVisualStyleBackColor = false;
+            this.btnAtualizarAluno.Click += new System.EventHandler(this.btnAtualizarAluno_Click);
             // 
             // txtTelefonePessoaAutorizada1
             // 
@@ -622,13 +616,15 @@
             this.comboBoxParentescoAutorizada1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxParentescoAutorizada1.FormattingEnabled = true;
             this.comboBoxParentescoAutorizada1.Items.AddRange(new object[] {
-            "branca",
-            "preta",
-            "parda",
-            "amarela",
-            "indigena",
-            "não declarada",
-            "outra"});
+            "Pai",
+            "Mãe",
+            "Avô",
+            "Avó",
+            "Irmão",
+            "Irmã",
+            "Tio",
+            "Tia",
+            "Outro"});
             this.comboBoxParentescoAutorizada1.Location = new System.Drawing.Point(1056, 108);
             this.comboBoxParentescoAutorizada1.Name = "comboBoxParentescoAutorizada1";
             this.comboBoxParentescoAutorizada1.Size = new System.Drawing.Size(236, 28);
@@ -1745,6 +1741,7 @@
             this.checkBoxFebreCadastroAluno.TabIndex = 39;
             this.checkBoxFebreCadastroAluno.Text = "Em caso de febre autoriza medicar a criança?";
             this.checkBoxFebreCadastroAluno.UseVisualStyleBackColor = true;
+            this.checkBoxFebreCadastroAluno.CheckedChanged += new System.EventHandler(this.checkBoxFebreCadastroAluno_CheckedChanged);
             // 
             // label15
             // 
@@ -2355,7 +2352,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
@@ -2381,7 +2377,7 @@
         private System.Windows.Forms.MaskedTextBox txtCpfPessoaAutorizada1;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Button btnSalvarAluno;
+        private System.Windows.Forms.Button btnAtualizarAluno;
         private System.Windows.Forms.MaskedTextBox txtTelefonePessoaAutorizada1;
         private System.Windows.Forms.ComboBox comboBoxParentescoAutorizada1;
         private System.Windows.Forms.Label label50;

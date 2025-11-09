@@ -127,10 +127,14 @@ namespace sistema_leticia_duarte_desktop.view
             if (!panelResponsavel2Cadastro.Enabled)
             {
                 panelResponsavel2Cadastro.Enabled = true;
+
+                btnAdicionarResponsavel1Cadastro.Visible = true;
                 return;
             }
 
             panelResponsavel2Cadastro.Enabled = false;
+
+            btnAdicionarResponsavel1Cadastro.Visible = false;
         }
 
         private void ativarCampoBolsaFamiliar()
@@ -521,7 +525,7 @@ namespace sistema_leticia_duarte_desktop.view
         private bool ValidarCamposAluno()
         {
             StringBuilder erros = new StringBuilder();
-            Control primeiroCampoComErro = null; // para guardar o primeiro campo inválido
+            Control primeiroCampoComErro = null; 
 
             if (txtNomeAlunoCadastro.Visible && string.IsNullOrWhiteSpace(txtNomeAlunoCadastro.Text))
             {

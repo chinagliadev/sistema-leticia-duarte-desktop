@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using System.Text;
 
 namespace sistema_leticia_duarte_desktop.auxiliar
 {
@@ -57,44 +58,54 @@ namespace sistema_leticia_duarte_desktop.auxiliar
             {
                 try
                 {
-                    string sql = @"
-    UPDATE tb_alunos SET
-        ra_aluno = @ra_aluno,
-        nome = @nome,
-        cpf = @cpf,
-        rg = @rg,
-        data_nascimento = @data_nascimento,
-        etnia = @etnia,
-        turma = @turma,
-        autorizacao_febre = @autorizacao_febre,
-        remedios = @remedios,        -- CORRIGIDO
-        qtdGotas = @qtdGotas,        -- CORRIGIDO
-        permissao_foto = @permissao_foto,
-        endereco_id = @endereco_id,
-        funcionario_id = @funcionario_id
-    WHERE id = @id;
-";
+                    StringBuilder sqlBuilder = new StringBuilder(@"
+                UPDATE tb_alunos SET
+                    ra_aluno = @ra_aluno,
+                    nome = @nome,
+                    cpf = @cpf,
+                    data_nascimento = @data_nascimento,
+                    etnia = @etnia,
+                    turma = @turma,
+                    autorizacao_febre = @autorizacao_febre,
+                    permissao_foto = @permissao_foto,
+                    endereco_id = @endereco_id,
+                    funcionario_id = @funcionario_id");
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    if (!string.IsNullOrWhiteSpace(aluno.rg))
+                        sqlBuilder.Append(", rg = @rg");
+
+                    if (!string.IsNullOrWhiteSpace(aluno.remedios))
+                        sqlBuilder.Append(", remedios = @remedios");
+
+                    if (aluno.qtdGotas > 0)
+                        sqlBuilder.Append(", qtdGotas = @qtdGotas");
+
+                    sqlBuilder.Append(" WHERE id = @id;");
+
+                    using (MySqlCommand cmd = new MySqlCommand(sqlBuilder.ToString(), conn))
                     {
                         cmd.Parameters.AddWithValue("@ra_aluno", aluno.ra_aluno);
                         cmd.Parameters.AddWithValue("@nome", aluno.nome);
                         cmd.Parameters.AddWithValue("@cpf", aluno.cpf);
-                        cmd.Parameters.AddWithValue("@rg", aluno.rg);
                         cmd.Parameters.AddWithValue("@data_nascimento", aluno.data_nascimento);
                         cmd.Parameters.AddWithValue("@etnia", aluno.etnia);
                         cmd.Parameters.AddWithValue("@turma", aluno.turma);
                         cmd.Parameters.AddWithValue("@autorizacao_febre", aluno.autorizacao_febre);
-                        cmd.Parameters.AddWithValue("@remedio", aluno.remedios);
-                        cmd.Parameters.AddWithValue("@gotas", aluno.qtdGotas);
                         cmd.Parameters.AddWithValue("@permissao_foto", aluno.permissao_foto);
                         cmd.Parameters.AddWithValue("@endereco_id", aluno.endereco_id);
                         cmd.Parameters.AddWithValue("@funcionario_id", aluno.funcionario_id);
-
                         cmd.Parameters.AddWithValue("@id", aluno.id);
 
-                        int linhas = cmd.ExecuteNonQuery();
+                        if (!string.IsNullOrWhiteSpace(aluno.rg))
+                            cmd.Parameters.AddWithValue("@rg", aluno.rg);
 
+                        if (!string.IsNullOrWhiteSpace(aluno.remedios))
+                            cmd.Parameters.AddWithValue("@remedios", aluno.remedios);
+
+                        if (aluno.qtdGotas > 0)
+                            cmd.Parameters.AddWithValue("@qtdGotas", aluno.qtdGotas);
+
+                        int linhas = cmd.ExecuteNonQuery();
                         return linhas > 0;
                     }
                 }
@@ -105,6 +116,8 @@ namespace sistema_leticia_duarte_desktop.auxiliar
                 }
             }
         }
+
+
 
 
     }
